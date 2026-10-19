@@ -161,19 +161,134 @@
     مرکز دانش من · ساخته‌شده برای یادگیری
   </footer>
 
-  <script>
-    const search = document.getElementById('search');
-    const cards = [...document.querySelectorAll('.card')];
+  
+<script>
+const search = document.getElementById('search');
+const subjectsContainer = document.getElementById('subjects');
 
-    search.addEventListener('input', () => {
-      const query = search.value.trim().toLocaleLowerCase('fa');
+let lessons = [];
 
-      cards.forEach(card => {
-        card.hidden = !card.textContent
-          .toLocaleLowerCase('fa')
-          .includes(query);
-      });
-    });
-  </script>
+function normalize(text) {
+  return String(text || '')
+    .toLocaleLowerCase('fa')
+    .replace(/ي/g, 'ی')
+    .replace(/ك/g, 'ک')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function escapeHTML(text) {
+  return String(text).replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[char]);
+}
+
+function renderLessons(items) {
+  subjectsContainer.innerHTML = '';
+
+  if (!items.length) {
+    subjectsContainer.innerHTML =
+      '<p>نتیجه‌ای پیدا نشد. عبارت دیگری را امتحان کن.</p>';
+    return;
+  }
+
+  const groups = new Map();
+
+  for (const lesson of items) {
+    if (!groups.has(lesson.subject)) {
+      groups.set(lesson.subject, []);
+    }
+    groups.get(lesson.subject).push(lesson);
+  }
+
+  for (const [subject, subjectLessons] of groups) {
+    const card = document.createElement('article');
+    card.className = 'card';
+
+    const title = document.createElement('h2');
+    title.textContent = '📚 ' + subject;
+    card.appendChild(title);
+
+    const count = document.createElement('p');
+    count.textContent = subjectLessons.length + ' درس';
+    card.appendChild(count);
+
+    for (const lesson of subjectLessons) {
+      const link = document.createElement('a');
+      link.href = lesson.path;
+      link.style.display = 'block';
+      link.style.marginTop = '12px';
+      link.style.color = 'var(--accent)';
+      link.textContent = lesson.title;
+
+      card.appendChild(link);
+
+      const snippet = document.createElement('p');
+      snippet.style.fontSize = '.85rem';
+      snippet.textContent = makeSnippet(lesson.text, search.value);
+      card.appendChild(snippet);
+    }
+
+    subjectsContainer.appendChild(card);
+  }
+}
+
+function makeSnippet(text, query) {
+  const clean = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!clean) return 'برای این جزوه متنی استخراج نشده است.';
+
+  const q = normalize(query);
+  const source = normalize(clean);
+  const index = q ? source.indexOf(q) : -1;
+
+  if (index < 0) {
+    return clean.slice(0, 180) + (clean.length > 180 ? '…' : '');
+  }
+
+  const start = Math.max(0, index - 60);
+  return (start ? '…' : '') +
+    clean.slice(start, index + q.length + 100) + '…';
+}
+
+async function loadIndex() {
+  try {
+    const response = await fetch('./search-index.json');
+
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status);
+    }
+
+    lessons = await response.json();
+    renderLessons(lessons);
+  } catch (error) {
+    subjectsContainer.innerHTML =
+      '<p>بارگذاری فهرست جزوه‌ها ناموفق بود. لطفاً کمی بعد صفحه را تازه‌سازی کن.</p>';
+    console.error('Could not load search-index.json:', error);
+  }
+}
+
+search.addEventListener('input', () => {
+  const query = normalize(search.value);
+
+  const results = lessons.filter(lesson => {
+    const searchable = normalize(
+      lesson.title + ' ' +
+      lesson.subject + ' ' +
+      lesson.filename + ' ' +
+      lesson.text
+    );
+
+    return searchable.includes(query);
+  });
+
+  renderLessons(results);
+});
+
+loadIndex();
+</script>
 </body>
 </html>
