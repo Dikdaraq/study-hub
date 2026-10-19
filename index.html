@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>Study Hub</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101827;
+      --panel: #1b2638;
+      --text: #edf2fa;
+      --muted: #9baac0;
+      --accent: #83aaff;
+      --border: #2d3a50;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      padding: 42px 24px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    header, main { max-width: 1050px; margin-inline: auto; }
+    .eyebrow {
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 10px 0; font-size: clamp(2rem, 5vw, 3rem); }
+    p { color: var(--muted); line-height: 1.6; }
+    main { padding: 28px 24px 60px; }
+    input {
+      width: 100%;
+      padding: 15px 17px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      margin: 12px 0 28px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      display: block;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .icon { font-size: 1.8rem; }
+    h2 { font-size: 1.15rem; margin: 14px 0 6px; }
+    .card p { margin: 0; font-size: .92rem; }
+    .count { display: inline-block; margin-top: 18px; color: var(--accent); font-size: .85rem; }
+    footer { padding: 24px; color: var(--muted); text-align: center; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Your personal knowledge base</div>
+    <h1>Study Hub<span style="color:#83aaff">.</span></h1>
+    <p>Your lessons, organized by subject. One place to learn everything.</p>
+  </header>
+
+  <main>
+    <h2>Explore your subjects</h2>
+    <p>Search for a subject or lesson to get started.</p>
+    <input id="search" type="search" placeholder="Search subjects and lessons..." aria-label="Search subjects and lessons">
+
+    <section class="grid" id="subjects">
+      <a class="card" href="notes/pharmacognosy/">
+        <div class="icon">🌿</div>
+        <h2>Pharmacognosy</h2>
+        <p>Natural products, medicinal plants, and their constituents.</p>
+        <span class="count">1 planned lesson →</span>
+      </a>
+
+      <a class="card" href="notes/toxicology/">
+        <div class="icon">🧪</div>
+        <h2>Toxicology</h2>
+        <p>Mechanisms of toxicity, exposure, and chemical safety.</p>
+        <span class="count">Coming soon</span>
+      </a>
+
+      <a class="card" href="notes/pharmacology/">
+        <div class="icon">💊</div>
+        <h2>Pharmacology</h2>
+        <p>Drug actions, receptors, and pharmacokinetics.</p>
+        <span class="count">Coming soon</span>
+      </a>
+
+      <a class="card" href="notes/biochemistry/">
+        <div class="icon">🧬</div>
+        <h2>Biochemistry</h2>
+        <p>Enzymes, metabolism, and molecular processes.</p>
+        <span class="count">Coming soon</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>Study Hub · Built for your learning</footer>
+
+  <script>
+    const search = document.getElementById('search');
+    const cards = [...document.querySelectorAll('.card')];
+
+    search.addEventListener('input', () => {
+      const query = search.value.trim().toLowerCase();
+      cards.forEach(card => {
+        card.hidden = !card.textContent.toLowerCase().includes(query);
+      });
+    });
+  </script>
+</body>
+</html>
