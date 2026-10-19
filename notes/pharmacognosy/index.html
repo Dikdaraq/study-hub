@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>فارماکوگنوزی | مرکز دانش من</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101827;
+      --panel: #1b2638;
+      --text: #edf2fa;
+      --muted: #9baac0;
+      --accent: #83aaff;
+      --border: #2d3a50;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.9;
+    }
+
+    header {
+      padding: 32px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 28px 24px 60px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .back { font-size: .95rem; }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: .8rem;
+      letter-spacing: .05em;
+    }
+
+    h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+    h2 { font-size: 1.2rem; }
+
+    .muted { color: var(--muted); }
+
+    .lesson {
+      display: block;
+      margin-top: 16px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel);
+      color: var(--text);
+      transition: border-color .2s;
+    }
+
+    .lesson:hover {
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .lesson-title { font-weight: bold; }
+
+    .lesson-description {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .arrow {
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: .85rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="eyebrow">مرکز دانش شخصی</div>
+    <h1>🌿 فارماکوگنوزی</h1>
+    <p class="muted">مجموعه جزوه‌ها و درس‌های فارماکوگنوزی</p>
+  </header>
+
+  <main>
+    <a class="back" href="../../index.html">بازگشت به صفحه اصلی ←</a>
+
+    <h2>فهرست درس‌ها</h2>
+    <p class="muted">برای مطالعه، یکی از درس‌های زیر را انتخاب کن.</p>
+
+    <a class="lesson" href="Pharmacognosy%2Csession1.html">
+      <div class="lesson-title">
+        جلسه اول فارماکوگنوزی
+        <span class="arrow">←</span>
+      </div>
+      <p class="lesson-description">
+        مشاهده جزوه اصلی جلسه اول
+      </p>
+    </a>
+  </main>
+
+  <footer>
+    مرکز دانش من · مجموعه شخصی یادداشت‌های آموزشی
+  </footer>
+</body>
+</html>
