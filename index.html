@@ -5,20 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090b12">
-  <title>Study Hub | جزوات ترم پنج</title>
+  <meta name="description" content="کتابخانه آموزشی جزوات و منابع درسی با جست‌وجوی فارسی و انگلیسی.">
+  <title>Study Hub | کتابخانه آموزشی</title>
 
   <style>
     :root {
       color-scheme: dark;
       --bg: #090b12;
-      --panel: rgba(20, 24, 38, .78);
-      --panel-solid: #141826;
+      --panel: rgba(20, 24, 38, .88);
       --border: rgba(165, 180, 252, .15);
       --text: #f4f5ff;
       --muted: #a0a8c0;
       --accent: #a78bfa;
       --accent2: #67e8f9;
-      --radius: 20px;
     }
 
     * { box-sizing: border-box; }
@@ -40,18 +39,15 @@
 
     body.modal-open { overflow: hidden; }
 
-    a { color: inherit; }
-
     button, input { font: inherit; }
-
     button { color: inherit; }
+    a { color: inherit; }
 
     ::selection {
       color: #090b12;
       background: #c4b5fd;
     }
 
-    /* Animated background */
     .ambient {
       position: fixed;
       inset: 0;
@@ -61,6 +57,17 @@
       background:
         radial-gradient(ellipse at 50% -15%, #242044 0%, transparent 52%),
         #090b12;
+    }
+
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: .13;
+      background-image:
+        linear-gradient(rgba(167,139,250,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167,139,250,.08) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
     }
 
     .orb {
@@ -93,17 +100,6 @@
       animation-delay: -10s;
     }
 
-    .grid-overlay {
-      position: absolute;
-      inset: 0;
-      opacity: .13;
-      background-image:
-        linear-gradient(rgba(167,139,250,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(167,139,250,.08) 1px, transparent 1px);
-      background-size: 46px 46px;
-      mask-image: linear-gradient(to bottom, black, transparent 78%);
-    }
-
     @keyframes drift {
       from { transform: translate3d(0, 0, 0) scale(1); }
       to { transform: translate3d(45px, -35px, 0) scale(1.15); }
@@ -112,10 +108,10 @@
     .container {
       width: min(1060px, calc(100% - 36px));
       margin: auto;
-      padding: 26px 0 60px;
+      padding: 26px 0 35px;
     }
 
-    /* Navigation */
+    /* Header */
     .topbar {
       display: flex;
       justify-content: space-between;
@@ -131,7 +127,6 @@
       gap: 12px;
       text-decoration: none;
       font-weight: 800;
-      letter-spacing: -.3px;
     }
 
     .brand-icon {
@@ -186,7 +181,6 @@
 
     /* Hero */
     .hero {
-      position: relative;
       margin-bottom: 34px;
       animation: fade-up .8s .08s ease both;
     }
@@ -229,13 +223,13 @@
     }
 
     .hero-description {
-      max-width: 570px;
+      max-width: 600px;
       margin: 18px 0 0;
       color: var(--muted);
       font-size: 1rem;
     }
 
-    /* Main search launcher */
+    /* Search launcher */
     .search-launcher {
       display: flex;
       align-items: center;
@@ -290,7 +284,7 @@
       font-size: .8rem;
     }
 
-    /* Section headings */
+    /* Subject cards */
     .section-heading {
       display: flex;
       justify-content: space-between;
@@ -320,7 +314,6 @@
       font-size: .82rem;
     }
 
-    /* Static subject cards */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -337,14 +330,11 @@
       overflow: hidden;
       padding: 25px;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 20px;
       background: linear-gradient(140deg, rgba(25,29,47,.92), rgba(16,19,30,.85));
       text-decoration: none;
       isolation: isolate;
-      transition:
-        transform .3s cubic-bezier(.2,.8,.2,1),
-        border-color .3s,
-        box-shadow .3s;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
       animation: fade-up .65s ease both;
     }
 
@@ -380,7 +370,7 @@
 
     .subject-card:hover {
       transform: translateY(-6px);
-      border-color: color-mix(in srgb, var(--card-color) 60%, transparent);
+      border-color: var(--card-color);
       box-shadow: 0 18px 45px rgba(0,0,0,.22);
     }
 
@@ -395,9 +385,9 @@
       width: 48px;
       height: 48px;
       margin-bottom: 18px;
-      border: 1px solid color-mix(in srgb, var(--card-color) 30%, transparent);
+      border: 1px solid var(--card-color);
       border-radius: 15px;
-      background: color-mix(in srgb, var(--card-color) 11%, transparent);
+      background: rgba(167,139,250,.08);
       color: var(--card-color);
       font-size: 23px;
     }
@@ -427,7 +417,7 @@
       transform: translateX(-5px);
     }
 
-    /* Search popup */
+    /* Search modal */
     .search-modal {
       position: fixed;
       inset: 0;
@@ -556,10 +546,13 @@
       overflow-wrap: anywhere;
     }
 
+    /* Gold highlight, visible in both titles and excerpts */
     .search-result mark {
+      padding: 0 2px;
       border-radius: 3px;
       background: #f0d58a;
       color: #16121f;
+      box-shadow: 0 0 12px rgba(240,213,138,.12);
     }
 
     .empty-state {
@@ -580,11 +573,13 @@
       font-size: .74rem;
     }
 
-    /* Footer */
+    /* Public-facing footer and design credit */
     footer {
       display: flex;
       justify-content: space-between;
-      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-top: 65px;
       padding-top: 20px;
       border-top: 1px solid var(--border);
@@ -592,9 +587,15 @@
       font-size: .8rem;
     }
 
-    footer span:last-child {
+    .designer-credit {
       direction: ltr;
+      text-align: left;
+      color: #c4b5fd;
+      text-decoration: none;
+      transition: color .2s;
     }
+
+    .designer-credit:hover { color: #67e8f9; }
 
     @keyframes fade-up {
       from { opacity: 0; transform: translateY(18px); }
@@ -612,7 +613,11 @@
     }
 
     @media (max-width: 620px) {
-      .container { width: calc(100% - 26px); padding-top: 18px; }
+      .container {
+        width: calc(100% - 26px);
+        padding-top: 18px;
+      }
+
       .topbar { margin-bottom: 48px; }
       .top-search-label, .keycap { display: none; }
       .top-search { padding: 10px 12px; }
@@ -626,7 +631,7 @@
       .modal-search-row { gap: 8px; padding: 13px; }
       .search-results { padding: 9px; }
       .section-heading h2 { font-size: 1.25rem; }
-      footer { flex-direction: column; gap: 3px; }
+      footer { align-items: flex-start; flex-direction: column; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -654,7 +659,7 @@
         <span class="brand-icon" aria-hidden="true">✦</span>
         <span>
           Study Hub
-          <small>YOUR LEARNING SPACE</small>
+          <small>OPEN LEARNING LIBRARY</small>
         </span>
       </a>
 
@@ -668,7 +673,7 @@
     <header class="hero">
       <div class="eyebrow">
         <span class="status-dot"></span>
-        فضای شخصی یادگیری
+        کتابخانه آموزشی
       </div>
 
       <h1>
@@ -677,33 +682,30 @@
       </h1>
 
       <p class="hero-description">
-        جزوه‌ها و یادداشت‌های درسی‌ات را یک‌جا داشته باش.
-        هر موضوعی را سریع جست‌وجو کن و مستقیم به محتوای موردنیازت برو.
+        به مجموعه‌ای از جزوات و منابع آموزشی دسترسی داشته باشید.
+        موضوع موردنظر خود را جست‌وجو کنید و مستقیماً به محتوای درسی برسید.
       </p>
     </header>
 
     <button class="search-launcher" id="open-search" type="button">
       <span class="search-icon" aria-hidden="true">⌕</span>
       <span class="search-launcher-copy">
-        <strong>دنبال چه چیزی می‌گردی؟</strong>
+        <strong>دنبال چه چیزی می‌گردید؟</strong>
         <small>جست‌وجو در عنوان و متن جزوه‌ها، فارسی یا انگلیسی…</small>
       </span>
-      <span class="keycap">⌕</span>
+      <span class="keycap">Ctrl K</span>
     </button>
 
     <section aria-labelledby="subjects-title">
       <div class="section-heading">
         <div>
           <h2 id="subjects-title">کتابخانه درسی</h2>
-          <p>یک درس را انتخاب کن و ادامه بده.</p>
+          <p>یک درس را انتخاب کنید و ادامه دهید.</p>
         </div>
         <span class="subject-count" id="subject-count">۲ درس</span>
       </div>
 
-      <!--
-        Keep your manually managed subject cards here.
-        Copy your existing cards into this section to preserve them.
-      -->
+      <!-- Keep all manually managed subject cards inside this grid. -->
       <div class="grid" id="subjects">
         <a class="subject-card"
            href="./notes/pharmacognosy/"
@@ -726,12 +728,15 @@
     </section>
 
     <footer>
-      <span>فضایی برای یادگیری بهتر و منظم‌تر.</span>
-      <span>STUDY HUB · 2026</span>
+      <span>دسترسی آسان به منابع و جزوات آموزشی.</span>
+      <a class="designer-credit"
+         href="https://github.com/Dikdaraq"
+         target="_blank"
+         rel="noopener noreferrer">Designed by Ali Mohammadi Dikdaraq</a>
     </footer>
   </main>
 
-  <!-- Search modal -->
+  <!-- Popup search -->
   <div
     class="search-modal"
     id="search-modal"
@@ -756,7 +761,7 @@
       </div>
 
       <div class="results-meta" id="search-status">
-        برای شروع، یک عبارت فارسی یا انگلیسی بنویس.
+        برای شروع، یک عبارت فارسی یا انگلیسی بنویسید.
       </div>
 
       <div class="search-results" id="search-results"></div>
@@ -787,6 +792,10 @@
     let lastFocusedElement = null;
     let debounceTimer;
 
+    /*
+     * Normalize Arabic/Persian spelling differences for search.
+     * Includes Arabic yeh/kaf, alef variants, diacritics and tatweel.
+     */
     function normalize(text) {
       return String(text || '')
         .normalize('NFC')
@@ -796,6 +805,7 @@
         .replace(/[ۀة]/g, 'ه')
         .replace(/ؤ/g, 'و')
         .replace(/[إأٱ]/g, 'ا')
+        .replace(/ئ/g, 'ی')
         .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
         .replace(/\s+/g, ' ')
         .trim();
@@ -822,7 +832,8 @@
       modal.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('modal-open');
 
-      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      if (lastFocusedElement &&
+          typeof lastFocusedElement.focus === 'function') {
         lastFocusedElement.focus();
       }
     }
@@ -838,10 +849,10 @@
     });
 
     document.addEventListener('keydown', event => {
-      const isMac = navigator.platform.toUpperCase().includes('MAC');
-      const shortcutModifier = isMac ? event.metaKey : event.ctrlKey;
+      const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+      const modifier = isMac ? event.metaKey : event.ctrlKey;
 
-      if (shortcutModifier && event.key.toLowerCase() === 'k') {
+      if (modifier && event.key.toLowerCase() === 'k') {
         event.preventDefault();
 
         if (modal.classList.contains('open')) {
@@ -856,12 +867,39 @@
       }
     });
 
+    /*
+     * Build a normalized string and map each normalized UTF-16 position
+     * back to the original string. This keeps keyword highlighting
+     * accurate when Persian/Arabic characters normalize differently.
+     */
+    function normalizeWithMap(text) {
+      let normalized = '';
+      const originalPositions = [];
+
+      for (let i = 0; i < text.length;) {
+        const codePoint = text.codePointAt(i);
+        const character = String.fromCodePoint(codePoint);
+        const originalStart = i;
+        i += character.length;
+
+        const part = normalize(character);
+
+        for (let j = 0; j < part.length; j++) {
+          normalized += part[j];
+          originalPositions.push(originalStart);
+        }
+      }
+
+      return { normalized, originalPositions };
+    }
+
     function makeExcerpt(text, query, maxLength = 220) {
       const original = String(text || '').replace(/\s+/g, ' ').trim();
+
       if (original.length <= maxLength) return original;
 
-      const normalized = normalize(original);
-      const terms = query.split(/\s+/).filter(Boolean);
+      const { normalized, originalPositions } = normalizeWithMap(original);
+      const terms = normalize(query).split(/\s+/).filter(Boolean);
       let position = -1;
 
       for (const term of terms) {
@@ -869,13 +907,12 @@
         if (position !== -1) break;
       }
 
-      // Normalization may change character positions. Use the beginning
-      // as a safe fallback instead of slicing at a potentially wrong offset.
-      if (position === -1 || normalized.length !== original.length) {
+      if (position === -1 || !originalPositions.length) {
         return original.slice(0, maxLength).trim() + '…';
       }
 
-      const start = Math.max(0, position - 65);
+      const originalPosition = originalPositions[position];
+      const start = Math.max(0, originalPosition - 65);
       const end = Math.min(original.length, start + maxLength);
 
       return (start > 0 ? '…' : '') +
@@ -883,27 +920,42 @@
         (end < original.length ? '…' : '');
     }
 
+    /*
+     * Highlight all non-overlapping matches safely with <mark>.
+     * Uses text nodes, never innerHTML, so lesson content cannot inject HTML.
+     */
     function highlightMatches(container, text, query) {
-      const normalizedText = normalize(text);
+      container.replaceChildren();
 
-      // Persian normalization can change character offsets, so only
-      // highlight when original and normalized positions are equivalent.
-      if (normalizedText.length !== text.length) {
+      const { normalized, originalPositions } = normalizeWithMap(text);
+      const terms = [...new Set(
+        normalize(query).split(/\s+/).filter(Boolean)
+      )].sort((a, b) => b.length - a.length);
+
+      if (!terms.length) {
         container.textContent = text;
         return;
       }
 
-      const terms = [...new Set(query.split(/\s+/).filter(Boolean))]
-        .sort((a, b) => b.length - a.length);
-
       const ranges = [];
 
       for (const term of terms) {
-        let pos = 0;
+        let position = 0;
 
-        while ((pos = normalizedText.indexOf(term, pos)) !== -1) {
-          ranges.push([pos, pos + term.length]);
-          pos += Math.max(term.length, 1);
+        while ((position = normalized.indexOf(term, position)) !== -1) {
+          const normalizedEnd = position + term.length;
+          const start = originalPositions[position];
+          const lastPosition = originalPositions[normalizedEnd - 1];
+
+          if (start !== undefined && lastPosition !== undefined) {
+            const lastCharacter = String.fromCodePoint(
+              text.codePointAt(lastPosition)
+            );
+            const end = lastPosition + lastCharacter.length;
+            ranges.push([start, end]);
+          }
+
+          position += Math.max(term.length, 1);
         }
       }
 
@@ -918,8 +970,10 @@
           document.createTextNode(text.slice(cursor, start))
         );
 
-        const mark = element('mark', '', text.slice(start, end));
+        const mark = document.createElement('mark');
+        mark.textContent = text.slice(start, end);
         container.appendChild(mark);
+
         cursor = end;
       }
 
@@ -928,14 +982,17 @@
 
     function showEmpty(message) {
       resultsContainer.replaceChildren();
-      resultsContainer.appendChild(element('div', 'empty-state', message));
+      resultsContainer.appendChild(
+        element('div', 'empty-state', message)
+      );
     }
 
     function renderResults(matches, query) {
       resultsContainer.replaceChildren();
 
       if (indexError) {
-        searchStatus.textContent = 'بارگذاری فهرست ناموفق بود؛ صفحه را دوباره بارگذاری کنید.';
+        searchStatus.textContent =
+          'بارگذاری فهرست ناموفق بود؛ صفحه را دوباره بارگذاری کنید.';
         showEmpty('فهرست جست‌وجو در دسترس نیست.');
         return;
       }
@@ -946,7 +1003,8 @@
       }
 
       if (!query) {
-        searchStatus.textContent = 'برای شروع، یک عبارت فارسی یا انگلیسی بنویس.';
+        searchStatus.textContent =
+          'برای شروع، یک عبارت فارسی یا انگلیسی بنویسید.';
         return;
       }
 
@@ -969,10 +1027,12 @@
         link.href = './' + lesson.path;
         link.style.animationDelay = `${Math.min(index * 20, 200)}ms`;
 
-        const title = element(
-          'h3',
-          '',
-          lesson.title || lesson.filename || 'جزوه'
+        // Highlight the search terms in the result title.
+        const title = element('h3');
+        highlightMatches(
+          title,
+          lesson.title || lesson.filename || 'جزوه',
+          query
         );
 
         const subject = element(
@@ -981,9 +1041,9 @@
           lesson.subject || 'جزوه'
         );
 
+        // Highlight the same search terms in the text excerpt.
         const excerpt = element('p', 'result-excerpt');
         const excerptText = makeExcerpt(lesson.text, query);
-
         highlightMatches(excerpt, excerptText, query);
 
         link.append(title, subject, excerpt);
@@ -1020,7 +1080,7 @@
             lesson.text
           ].join(' '));
 
-          // Every query term must match. Supports Persian and English.
+          // Every query term must match.
           return terms.every(term => content.includes(term));
         })
         .sort((a, b) => {
@@ -1077,8 +1137,11 @@
       }
     }
 
-    // Update the subject count from the static cards.
-    const subjectCards = document.querySelectorAll('#subjects .subject-card');
+    // Count the manually managed subject cards.
+    const subjectCards = document.querySelectorAll(
+      '#subjects .subject-card'
+    );
+
     document.getElementById('subject-count').textContent =
       `${subjectCards.length} درس`;
 
