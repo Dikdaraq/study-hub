@@ -3,315 +3,384 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101827">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>جزوات ترم پنج</title>
+  <meta
+    name="description"
+    content="مجموعه جزوات و جلسات دروس ترم پنج داروسازی"
+  >
 
   <style>
     :root {
       color-scheme: dark;
-      --bg: #101827;
-      --panel: #1b2638;
-      --text: #edf2fa;
-      --muted: #9baac0;
-      --accent: #83aaff;
-      --border: #2d3a50;
+      --bg: #0b1120;
+      --panel: #151e30;
+      --panel-hover: #1c2940;
+      --border: #29364d;
+      --text: #edf2f7;
+      --muted: #a5b1c4;
+      --accent: #72d6c0;
+      --accent-dark: #163d3a;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      background: var(--bg);
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(61, 103, 146, 0.18),
+          transparent 34rem
+        ),
+        var(--bg);
       color: var(--text);
       font-family: Tahoma, Arial, sans-serif;
-      line-height: 1.9;
+      line-height: 1.8;
     }
 
-    header {
-      padding: 40px 24px 28px;
-      border-bottom: 1px solid var(--border);
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    header, main {
-      max-width: 1100px;
+    .container {
+      width: min(1100px, calc(100% - 32px));
       margin-inline: auto;
     }
 
-    .eyebrow {
-      color: var(--accent);
-      font-size: .85rem;
+    header {
+      padding: 56px 0 30px;
     }
 
-    h1 { font-size: clamp(2rem, 5vw, 3rem); }
-    h2 { font-size: 1.2rem; }
-
-    p { color: var(--muted); }
-
-    main { padding: 28px 24px 60px; }
-
-    input {
-      width: 100%;
-      padding: 14px 16px;
-      margin: 12px 0 28px;
-      border-radius: 12px;
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 12px;
       border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.4;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .search-area {
+      margin: 18px 0 32px;
+    }
+
+    .search-area label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    #search {
+      display: block;
+      width: 100%;
+      padding: 15px 17px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      outline: none;
       background: var(--panel);
       color: var(--text);
       font: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #search::placeholder {
+      color: #8190a7;
+    }
+
+    #search:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(114, 214, 192, 0.12);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .subject-count {
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+      gap: 18px;
+      padding-bottom: 48px;
     }
 
     .card {
-      display: block;
-      padding: 22px;
+      display: flex;
+      min-height: 225px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 23px;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 20px;
       background: var(--panel);
-      color: var(--text);
-      text-decoration: none;
-      transition: border-color .2s, transform .2s;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .card:hover {
+      transform: translateY(-4px);
       border-color: var(--accent);
-      transform: translateY(-2px);
+      background: var(--panel-hover);
     }
 
-    .icon { font-size: 1.8rem; }
-    .card h2 { margin: 12px 0 4px; }
-    .card p { font-size: .92rem; margin-bottom: 0; }
+    .card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      margin-bottom: 12px;
+      border-radius: 15px;
+      background: var(--accent-dark);
+      font-size: 1.7rem;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
     .count {
-      display: inline-block;
-      margin-top: 16px;
+      margin-top: auto;
       color: var(--accent);
-      font-size: .85rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 24px;
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .empty-state.visible {
+      display: block;
     }
 
     footer {
-      padding: 24px;
-      text-align: center;
+      padding: 24px 0 32px;
       border-top: 1px solid var(--border);
       color: var(--muted);
-      font-size: .85rem;
+      text-align: center;
+      font-size: 0.9rem;
     }
 
-    [hidden] { display: none !important; }
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 36px;
+      }
+
+      .grid {
+        gap: 12px;
+      }
+
+      .card {
+        min-height: 200px;
+        padding: 19px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="eyebrow">کتابخانه دیجیتال</div>
-    <h1>جزوات ترم پنج <span style="color:#83aaff">.</span></h1>
-    <p>تمام جزوه‌ها و یادداشت‌های آموزشی، یک‌جا و دسته‌بندی‌شده</p>
+    <div class="container">
+      <span class="eyebrow">Study Hub · داروسازی</span>
+
+      <h1>جزوات ترم پنج</h1>
+
+      <p class="intro">
+        جزوات، جلسات و منابع درسی را در یک مکان پیدا کنید.
+        برای پیدا کردن درس موردنظر از جست‌وجو استفاده کنید.
+      </p>
+    </div>
   </header>
 
-  <main>
-    <h2>موضوعات درسی</h2>
-    <p>موضوع یا عنوان درس موردنظرت را جست‌وجو کن.</p>
+  <main class="container">
+    <div class="search-area">
+      <label for="search">جست‌وجوی درس</label>
 
-    <input
-      id="search"
-      type="search"
-      placeholder="جست‌وجو در موضوعات..."
-      aria-label="جست‌وجو در موضوعات"
-    >
+      <input
+        id="search"
+        type="search"
+        placeholder="نام درس را وارد کنید..."
+        autocomplete="off"
+      >
+    </div>
 
+    <div class="section-heading">
+      <h2>درس‌ها</h2>
+      <span class="subject-count" id="subject-count">۲ درس</span>
+    </div>
+
+    <!--
+      برای اضافه کردن درس جدید، یک کارت دیگر با همین ساختار
+      داخل این section قرار دهید.
+    -->
     <section class="grid" id="subjects">
 
-      <a class="card" href="notes/pharmacognosy/">
-        <div class="icon">🌿</div>
+      <!-- فارماکوگنوزی -->
+      <a
+        class="card"
+        href="notes/pharmacognosy/"
+        data-search="فارماکوگنوزی pharmacognosy گیاهان دارویی ترکیبات طبیعی منابع دارویی"
+      >
+        <div class="icon" aria-hidden="true">🌿</div>
         <h2>فارماکوگنوزی</h2>
-        <p>گیاهان دارویی، ترکیبات طبیعی و منابع دارویی.</p>
+        <p>
+          گیاهان دارویی، ترکیبات طبیعی و منابع دارویی.
+        </p>
         <span class="count">مشاهده درس‌ها ←</span>
       </a>
 
-      
-      <a class="card" href="notes/pharmaceutics2/">
-        <div class="icon">💊</div>
+      <!-- فارماسیوتیکس ۲ -->
+      <a
+        class="card"
+        href="notes/pharmaceutics2/"
+        data-search="فارماسیوتیکس ۲ pharmaceutics2 pharmaceutics داروسازی فرمولاسیون دکتر ابراهیمی دکتر حیدری"
+      >
+        <div class="icon" aria-hidden="true">💊</div>
         <h2>فارماسیوتیکس ۲</h2>
-        <p>جزوه‌ها و جلسات درس به تفکیک استاد.</p>
+        <p>
+          جزوه‌ها و جلسات درس به تفکیک استاد.
+        </p>
         <span class="count">مشاهده درس‌ها ←</span>
       </a>
 
+      <!--
+        نمونه اضافه کردن درس جدید:
 
-      <a class="card" href="notes/toxicology/">
-        <div class="icon">🧪</div>
-        <h2>سم‌شناسی</h2>
-        <p>مکانیسم‌های سمیت، مواجهه شیمیایی و ارزیابی خطر.</p>
-        <span class="count">در حال آماده‌سازی</span>
-      </a>
-
-      <a class="card" href="notes/pharmacology/">
-        <div class="icon">💊</div>
-        <h2>فارماکولوژی</h2>
-        <p>اثر داروها، گیرنده‌ها و فارماکوکینتیک.</p>
-        <span class="count">در حال آماده‌سازی</span>
-      </a>
-
-      <a class="card" href="notes/biochemistry/">
-        <div class="icon">🧬</div>
-        <h2>بیوشیمی</h2>
-        <p>آنزیم‌ها، متابولیسم و فرایندهای مولکولی.</p>
-        <span class="count">در حال آماده‌سازی</span>
-      </a>
+        <a
+          class="card"
+          href="notes/toxicology/"
+          data-search="سم شناسی toxicology"
+        >
+          <div class="icon" aria-hidden="true">🧪</div>
+          <h2>سم‌شناسی</h2>
+          <p>جزوه‌ها و جلسات درس سم‌شناسی.</p>
+          <span class="count">مشاهده درس‌ها ←</span>
+        </a>
+      -->
 
     </section>
+
+    <div class="empty-state" id="empty-state" role="status">
+      درسی با این عبارت پیدا نشد.
+    </div>
   </main>
 
   <footer>
-  <p style="font-size: 0.85rem; opacity: 0.7;">
-    Designed by
-    <strong>Ali Mohammadi Dikdaraq</strong>
-  </p>
-</footer>
+    <div class="container">
+      جزوات ترم پنج · Study Hub
+    </div>
+  </footer>
 
-  
-<script>
-const search = document.getElementById('search');
-const subjectsContainer = document.getElementById('subjects');
-
-let lessons = [];
-
-function normalize(text) {
-  return String(text || '')
-    .toLocaleLowerCase('fa')
-    .replace(/ي/g, 'ی')
-    .replace(/ك/g, 'ک')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function escapeHTML(text) {
-  return String(text).replace(/[&<>"']/g, char => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  })[char]);
-}
-
-function renderLessons(items) {
-  subjectsContainer.innerHTML = '';
-
-  if (!items.length) {
-    subjectsContainer.innerHTML =
-      '<p>نتیجه‌ای پیدا نشد. عبارت دیگری را امتحان کن.</p>';
-    return;
-  }
-
-  const groups = new Map();
-
-  for (const lesson of items) {
-    if (!groups.has(lesson.subject)) {
-      groups.set(lesson.subject, []);
-    }
-    groups.get(lesson.subject).push(lesson);
-  }
-
-  for (const [subject, subjectLessons] of groups) {
-    const card = document.createElement('article');
-    card.className = 'card';
-
-    const title = document.createElement('h2');
-    const subjectNames = {
-        pharmacognosy: 'فارماکوگنوزی',
-        pharmaceutics2: 'فارماسیوتیکس ۲',
-        toxicology: 'سم‌شناسی',
-        pharmacology: 'فارماکولوژی',
-        biochemistry: 'بیوشیمی',
-        bioinformatics: 'بیوانفورماتیک',
-        pharmaceutics: 'داروسازی صنعتی'
-      };
-
-      const persianSubject = subjectNames[subject] || subject;
-      title.textContent = '📚 ' + persianSubject;
-    card.appendChild(title);
-
-    const count = document.createElement('p');
-    count.textContent = subjectLessons.length + ' درس';
-    card.appendChild(count);
-
-    for (const lesson of subjectLessons) {
-      const link = document.createElement('a');
-      link.href = lesson.path;
-      link.style.display = 'block';
-      link.style.marginTop = '12px';
-      link.style.color = 'var(--accent)';
-      link.textContent = lesson.title;
-
-      card.appendChild(link);
-
-      const snippet = document.createElement('p');
-      snippet.style.fontSize = '.85rem';
-      snippet.textContent = makeSnippet(lesson.text, search.value);
-      card.appendChild(snippet);
-    }
-
-    subjectsContainer.appendChild(card);
-  }
-}
-
-function makeSnippet(text, query) {
-  const clean = String(text || '').replace(/\s+/g, ' ').trim();
-  if (!clean) return 'برای این جزوه متنی استخراج نشده است.';
-
-  const q = normalize(query);
-  const source = normalize(clean);
-  const index = q ? source.indexOf(q) : -1;
-
-  if (index < 0) {
-    return clean.slice(0, 180) + (clean.length > 180 ? '…' : '');
-  }
-
-  const start = Math.max(0, index - 60);
-  return (start ? '…' : '') +
-    clean.slice(start, index + q.length + 100) + '…';
-}
-
-async function loadIndex() {
-  try {
-    const response = await fetch('./search-index.json');
-
-    if (!response.ok) {
-      throw new Error('HTTP ' + response.status);
-    }
-
-    lessons = await response.json();
-    renderLessons(lessons);
-  } catch (error) {
-    subjectsContainer.innerHTML =
-      '<p>بارگذاری فهرست جزوه‌ها ناموفق بود. لطفاً کمی بعد صفحه را تازه‌سازی کن.</p>';
-    console.error('Could not load search-index.json:', error);
-  }
-}
-
-search.addEventListener('input', () => {
-  const query = normalize(search.value);
-
-  const results = lessons.filter(lesson => {
-    const searchable = normalize(
-      lesson.title + ' ' +
-      lesson.subject + ' ' +
-      lesson.filename + ' ' +
-      lesson.text
+  <script>
+    const search = document.getElementById('search');
+    const cards = Array.from(
+      document.querySelectorAll('#subjects .card')
     );
+    const count = document.getElementById('subject-count');
+    const emptyState = document.getElementById('empty-state');
 
-    return searchable.includes(query);
-  });
+    function normalize(text) {
+      return String(text || '')
+        .toLocaleLowerCase('fa')
+        .replace(/ي/g, 'ی')
+        .replace(/ك/g, 'ک')
+        .replace(/ۀ/g, 'ه')
+        .replace(/ة/g, 'ه')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
 
-  renderLessons(results);
-});
+    function filterCards() {
+      const query = normalize(search.value);
+      let visibleCount = 0;
 
-loadIndex();
-</script>
+      cards.forEach(card => {
+        const searchableText = normalize(
+          card.innerText + ' ' +
+          (card.dataset.search || '') + ' ' +
+          (card.getAttribute('href') || '')
+        );
+
+        const matches = searchableText.includes(query);
+
+        card.hidden = !matches;
+
+        if (matches) {
+          visibleCount++;
+        }
+      });
+
+      count.textContent = `${visibleCount} از ${cards.length} درس`;
+
+      emptyState.classList.toggle(
+        'visible',
+        visibleCount === 0
+      );
+    }
+
+    search.addEventListener('input', filterCards);
+
+    filterCards();
+  </script>
 </body>
 </html>
