@@ -1,16 +1,16 @@
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1020">
-  <title>Pharmaceutics 2 | Study Hub</title>
+  <meta name="theme-color" content="#080d1a">
+  <title>فارماسیوتیکس ۲ | کتابخانه آموزشی</title>
   <style>
     :root {
       color-scheme: dark;
       --bg: #080d1a;
-      --panel: rgba(19, 27, 48, .78);
+      --panel: rgba(19,27,48,.78);
       --line: rgba(255,255,255,.1);
       --text: #f3f5ff;
       --muted: #a5aec7;
@@ -20,263 +20,267 @@
     * { box-sizing: border-box; }
     body {
       margin: 0; min-height: 100vh; color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-family: Tahoma, "Vazirmatn", "Segoe UI", sans-serif;
       background:
-        radial-gradient(ellipse at 15% 5%, rgba(6,182,212,.18), transparent 35%),
-        radial-gradient(ellipse at 90% 25%, rgba(124,58,237,.17), transparent 30%),
+        radial-gradient(ellipse at 15% 5%,rgba(6,182,212,.18),transparent 35%),
+        radial-gradient(ellipse at 90% 25%,rgba(124,58,237,.17),transparent 30%),
         var(--bg);
     }
     a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1000px, calc(100% - 36px)); margin: auto; }
+    .wrap { width: min(1000px,calc(100% - 36px)); margin: auto; }
     header {
       display: flex; align-items: center; justify-content: space-between;
       gap: 16px; padding: 26px 0;
     }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
     .logo {
-      display: grid; place-items: center; width: 42px; height: 42px;
-      border-radius: 14px; color: #0b1020;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 8px 30px rgba(103,232,249,.2);
+      display: grid; place-items: center; width: 44px; height: 44px;
+      border-radius: 14px; color: #0b1020; font-size: 22px;
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow: 0 8px 30px #67e8f933;
     }
     .brand small {
       display: block; color: var(--muted); font-size: 10px;
-      letter-spacing: 2px; margin-top: 3px;
+      letter-spacing: 1px; margin-top: 5px; font-weight: 500;
     }
     .back {
       color: var(--muted); border: 1px solid var(--line);
-      padding: 10px 14px; border-radius: 12px; transition: .2s;
+      padding: 11px 14px; border-radius: 12px; transition: .2s;
+      white-space: nowrap;
     }
     .back:hover { color: white; border-color: var(--accent); transform: translateY(-2px); }
     .hero { padding: 65px 0 34px; animation: rise .65s ease both; }
-    .eyebrow {
-      color: var(--accent); font-size: 12px; font-weight: 800;
-      letter-spacing: 3px; text-transform: uppercase;
-    }
-    h1 { font-size: clamp(38px, 7vw, 68px); letter-spacing: -2px; margin: 14px 0; }
-    .description { color: var(--muted); line-height: 1.8; max-width: 650px; }
+    .eyebrow { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: 1px; }
+    h1 { font-size: clamp(34px,7vw,62px); margin: 18px 0; line-height: 1.5; }
+    .description { color: var(--muted); line-height: 2; max-width: 700px; }
     .search {
       display: flex; gap: 12px; align-items: center; margin: 28px 0 12px;
-      padding: 8px 10px 8px 18px; border: 1px solid var(--line);
-      background: rgba(255,255,255,.045); border-radius: 17px;
-      transition: .25s;
+      padding: 8px 18px; border: 1px solid var(--line);
+      background: #ffffff0b; border-radius: 17px; transition: .25s;
     }
     .search:focus-within {
-      border-color: var(--accent); box-shadow: 0 0 0 4px rgba(103,232,249,.1);
+      border-color: var(--accent); box-shadow: 0 0 0 4px #67e8f91a;
     }
-    .search span { color: var(--accent); font-size: 20px; }
+    .search span { color: var(--accent); font-size: 25px; }
     input {
-      width: 100%; min-width: 0; border: 0; outline: 0; color: var(--text);
-      background: transparent; padding: 12px 0; font: inherit;
+      width: 100%; min-width: 0; border: 0; outline: 0;
+      color: var(--text); background: transparent; padding: 13px 0;
+      font: inherit; font-size: 14px;
     }
     input::placeholder { color: #7e89a5; }
     .count { color: var(--muted); font-size: 13px; margin: 18px 0; }
     .lessons {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(245px,1fr));
       gap: 16px; padding: 12px 0 65px;
     }
     .lesson {
-      display: block; min-height: 160px; padding: 23px;
+      display: block; min-height: 155px; padding: 23px;
       border: 1px solid var(--line); border-radius: 20px;
       background: var(--panel); backdrop-filter: blur(14px);
-      transition: transform .25s, border-color .25s, box-shadow .25s;
+      transition: transform .25s,border-color .25s,box-shadow .25s;
       animation: rise .45s ease both;
     }
     .lesson:hover {
-      transform: translateY(-6px); border-color: rgba(103,232,249,.65);
-      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      transform: translateY(-6px); border-color: #67e8f999;
+      box-shadow: 0 18px 45px #0004;
     }
-    .lesson-icon { font-size: 24px; margin-bottom: 18px; }
-    .lesson h2 { font-size: 18px; line-height: 1.5; margin: 0 0 10px; }
-    .lesson p { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0; }
-    mark { background: rgba(250,204,21,.28); color: #fde68a; border-radius: 3px; }
+    .lesson-icon { font-size: 25px; margin-bottom: 16px; }
+    .lesson h2 { font-size: 17px; line-height: 1.9; margin: 0 0 10px; }
+    .lesson p { color: var(--muted); font-size: 13px; line-height: 2; margin: 0; }
+    mark { background: #facc1544; color: #fde68a; border-radius: 3px; padding: 0 2px; }
     .empty {
       display: none; padding: 30px 20px; text-align: center; color: var(--muted);
-      border: 1px dashed var(--line); border-radius: 18px;
+      border: 1px dashed var(--line); border-radius: 18px; line-height: 2;
     }
     footer {
       border-top: 1px solid var(--line); padding: 24px 0 32px;
       color: var(--muted); font-size: 12px; display: flex;
-      justify-content: space-between; flex-wrap: wrap; gap: 12px;
+      justify-content: space-between; flex-wrap: wrap; gap: 14px; line-height: 2;
     }
-    .credit { color: var(--accent); }
+    .credit { color: var(--accent); direction: ltr; }
     @keyframes rise {
       from { opacity: 0; transform: translateY(14px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @media (max-width: 560px) {
+    @media(max-width:560px) {
       header { padding: 18px 0; }
-      .hero { padding-top: 44px; }
-      h1 { letter-spacing: -1px; }
+      .hero { padding-top: 42px; }
       .lessons { grid-template-columns: 1fr; }
+      .brand small { letter-spacing: 0; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important; transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="../../index.html">
-        <span class="logo">S</span>
-        <span>Study Hub<small>OPEN LEARNING LIBRARY</small></span>
-      </a>
-      <a class="back" href="../../index.html">← All subjects</a>
-    </header>
+<div class="wrap">
+  <header>
+    <a class="brand" href="../../index.html">
+      <span class="logo">د</span>
+      <span>کتابخانه آموزشی<small>مجموعه جزوات و منابع درسی</small></span>
+    </a>
+    <a class="back" href="../../index.html">← بازگشت به صفحه اصلی</a>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div class="eyebrow">SUBJECT LIBRARY / 02</div>
-        <h1>Pharmaceutics 2<span style="color:var(--accent)">.</span></h1>
-        <p class="description">
-          Browse your Pharmaceutics 2 lessons, or search within lesson titles and content.
-        </p>
-        <label class="search">
-          <span>⌕</span>
-          <input id="search" type="search" placeholder="Search lessons and their content…" autocomplete="off">
-        </label>
-        <p class="count" id="count" aria-live="polite">Loading lessons…</p>
-      </section>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">کتابخانه دروس / ۰۲</div>
+      <h1>فارماسیوتیکس ۲<span style="color:var(--accent)">.</span></h1>
+      <p class="description">
+        جزوات و جلسات درس فارماسیوتیکس ۲ را مرور کنید یا با جست‌وجوی عنوان و متن جزوات، مطلب موردنظرتان را پیدا کنید.
+      </p>
+      <label class="search">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="جست‌وجو در عنوان و متن جزوات..." autocomplete="off">
+      </label>
+      <p class="count" id="count" aria-live="polite">در حال بارگذاری جزوات...</p>
+    </section>
 
-      <section class="lessons" id="lessons" aria-label="Pharmaceutics 2 lessons"></section>
-      <div class="empty" id="empty">No matching lessons found.</div>
-    </main>
+    <section class="lessons" id="lessons" aria-label="جزوات فارماسیوتیکس ۲"></section>
+    <div class="empty" id="empty">جزوه‌ای با این عبارت پیدا نشد.</div>
+  </main>
 
-    <footer>
-      <span>Pharmaceutics 2 · Learning resources</span>
-      <a class="credit" href="https://github.com/Dikdaraq" target="_blank" rel="noopener noreferrer">Designed by Ali Mohammadi Dikdaraq</a>
-    </footer>
-  </div>
+  <footer>
+    <span>فارماسیوتیکس ۲ · جزوات و منابع آموزشی</span>
+    <a class="credit" href="https://github.com/Dikdaraq" target="_blank" rel="noopener noreferrer">Designed by Ali Mohammadi Dikdaraq</a>
+  </footer>
+</div>
 
-  <script>
-    const FOLDER = "notes/pharmaceutics2/";
-    const INDEX_URL = "../../search-index.json";
-    const input = document.getElementById("search");
-    const grid = document.getElementById("lessons");
-    const count = document.getElementById("count");
-    const empty = document.getElementById("empty");
-    let lessons = [];
+<script>
+  const FOLDER = "notes/pharmaceutics2/";
+  const INDEX_URL = "../../search-index.json";
+  const input = document.getElementById("search");
+  const grid = document.getElementById("lessons");
+  const count = document.getElementById("count");
+  const empty = document.getElementById("empty");
+  let lessons = [];
 
-    function normalize(value) {
-      return String(value || "")
-        .normalize("NFKC")
-        .replace(/[يى]/g, "ی")
-        .replace(/ك/g, "ک")
-        .replace(/[أإٱآ]/g, "ا")
-        .replace(/ة/g, "ه")
-        .replace(/ؤ/g, "و")
-        .replace(/ئ/g, "ی")
-        .replace(/ـ/g, "")
-        .replace(/[\u064B-\u065F\u0670]/g, "")
-        .toLowerCase()
-        .trim();
-    }
+  function normalize(value) {
+    return String(value || "")
+      .normalize("NFKC")
+      .replace(/[يى]/g, "ی")
+      .replace(/ك/g, "ک")
+      .replace(/[أإٱآ]/g, "ا")
+      .replace(/ة/g, "ه")
+      .replace(/ؤ/g, "و")
+      .replace(/ئ/g, "ی")
+      .replace(/ـ/g, "")
+      .replace(/[\u064B-\u065F\u0670]/g, "")
+      .toLowerCase().trim();
+  }
 
-    function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, ch => ({
-        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-      })[ch]);
-    }
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, ch => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    })[ch]);
+  }
 
-    function highlight(text, query) {
-      const original = String(text || "");
-      const normalizedOriginal = normalize(original);
-      const terms = normalize(query).split(/\s+/).filter(Boolean);
+  function highlight(text, query) {
+    const original = String(text || "");
+    const normalized = normalize(original);
+    const terms = normalize(query).split(/\s+/).filter(Boolean);
+    let best = -1, bestTerm = "";
 
-      for (const term of terms) {
-        const idx = normalizedOriginal.indexOf(term);
-        if (idx >= 0 && idx < original.length) {
-          return escapeHTML(original.slice(0, idx)) +
-            "<mark>" + escapeHTML(original.slice(idx, idx + term.length)) + "</mark>" +
-            escapeHTML(original.slice(idx + term.length));
-        }
-      }
-      return escapeHTML(original);
-    }
-
-    function excerpt(text, query) {
-      const source = String(text || "").replace(/\s+/g, " ").trim();
-      if (!source) return "Open this lesson to view its content.";
-      const haystack = normalize(source);
-      const terms = normalize(query).split(/\s+/).filter(Boolean);
-      let pos = -1;
-
-      for (const term of terms) {
-        pos = haystack.indexOf(term);
-        if (pos >= 0) break;
-      }
-
-      if (pos < 0) return source.slice(0, 150) + (source.length > 150 ? "…" : "");
-      const start = Math.max(0, pos - 55);
-      const end = Math.min(source.length, pos + 110);
-      return (start ? "…" : "") + source.slice(start, end) +
-        (end < source.length ? "…" : "");
-    }
-
-    function render() {
-      const query = input.value;
-      const q = normalize(query);
-      const terms = q.split(/\s+/).filter(Boolean);
-
-      const filtered = lessons.filter(item => {
-        const searchable = normalize([
-          item.title, item.subject, item.filename, item.text, item.path
-        ].join(" "));
-        return terms.every(term => searchable.includes(term));
-      });
-
-      grid.innerHTML = "";
-      empty.style.display = filtered.length ? "none" : "block";
-      count.textContent = `${filtered.length} lesson${filtered.length === 1 ? "" : "s"}${q ? " found" : " available"}`;
-
-      filtered.forEach((item, i) => {
-        const card = document.createElement("a");
-        card.className = "lesson";
-        card.href = item.path;
-        card.style.animationDelay = `${Math.min(i * 35, 350)}ms`;
-
-        const title = item.title || item.filename || "Untitled lesson";
-        const snippet = excerpt(item.text || "", query);
-
-        card.innerHTML = `
-          <div class="lesson-icon">📘</div>
-          <h2>${highlight(title, query)}</h2>
-          <p>${highlight(snippet, query)}</p>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    async function init() {
-      try {
-        const response = await fetch(INDEX_URL, { cache: "no-store" });
-        if (!response.ok) throw new Error("Search index unavailable");
-
-        const data = await response.json();
-        lessons = data.filter(item =>
-          String(item.path || "").replace(/^\.?\//, "").startsWith(FOLDER)
-        );
-
-        lessons.sort((a, b) =>
-          String(a.title || a.filename || "").localeCompare(
-            String(b.title || b.filename || ""), undefined, { sensitivity: "base" }
-          )
-        );
-
-        render();
-      } catch (error) {
-        count.textContent = "Could not load lessons. Please try again after the site has deployed.";
-        empty.textContent = "The lesson index could not be loaded. Check that search-index.json is available at the site root.";
-        empty.style.display = "block";
+    for (const term of terms) {
+      const index = normalized.indexOf(term);
+      if (index >= 0 && (best < 0 || index < best)) {
+        best = index;
+        bestTerm = term;
       }
     }
 
-    input.addEventListener("input", render);
-    init();
-  </script>
+    if (best < 0 || best >= original.length) return escapeHTML(original);
+
+    return escapeHTML(original.slice(0, best)) +
+      "<mark>" + escapeHTML(original.slice(best, best + bestTerm.length)) + "</mark>" +
+      escapeHTML(original.slice(best + bestTerm.length));
+  }
+
+  function excerpt(text, query) {
+    const source = String(text || "").replace(/\s+/g, " ").trim();
+    if (!source) return "برای مطالعه، این جزوه را باز کنید.";
+    const haystack = normalize(source);
+    const terms = normalize(query).split(/\s+/).filter(Boolean);
+    let pos = -1;
+
+    for (const term of terms) {
+      pos = haystack.indexOf(term);
+      if (pos >= 0) break;
+    }
+
+    if (pos < 0) return source.slice(0, 150) + (source.length > 150 ? "…" : "");
+    const start = Math.max(0, pos - 55);
+    const end = Math.min(source.length, pos + 110);
+    return (start ? "…" : "") + source.slice(start, end) +
+      (end < source.length ? "…" : "");
+  }
+
+  function render() {
+    const query = input.value;
+    const terms = normalize(query).split(/\s+/).filter(Boolean);
+
+    const filtered = lessons.filter(item => {
+      const searchable = normalize([
+        item.title, item.subject, item.filename, item.text, item.path
+      ].join(" "));
+      return terms.every(term => searchable.includes(term));
+    });
+
+    grid.replaceChildren();
+    empty.style.display = filtered.length ? "none" : "block";
+    count.textContent = `${filtered.length} جزوه${query.trim() ? " پیدا شد" : " موجود است"}`;
+
+    filtered.forEach((item, i) => {
+      const card = document.createElement("a");
+      card.className = "lesson";
+      card.href = item.path;
+      card.style.animationDelay = `${Math.min(i * 35, 350)}ms`;
+
+      const icon = document.createElement("div");
+      icon.className = "lesson-icon";
+      icon.textContent = "📘";
+
+      const title = document.createElement("h2");
+      title.innerHTML = highlight(item.title || item.filename || "جزوه بدون عنوان", query);
+
+      const description = document.createElement("p");
+      description.innerHTML = highlight(excerpt(item.text || "", query), query);
+
+      card.append(icon, title, description);
+      grid.appendChild(card);
+    });
+  }
+
+  async function init() {
+    try {
+      const response = await fetch(INDEX_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error("Index unavailable");
+
+      const data = await response.json();
+      lessons = data.filter(item =>
+        String(item.path || "").replace(/^\.?\//, "").startsWith(FOLDER)
+      );
+
+      lessons.sort((a, b) =>
+        String(a.title || a.filename || "").localeCompare(
+          String(b.title || b.filename || ""), "fa"
+        )
+      );
+
+      render();
+    } catch {
+      count.textContent = "بارگذاری جزوات با مشکل مواجه شد.";
+      empty.textContent = "فهرست جزوات در دسترس نیست. پس از تکمیل انتشار سایت، دوباره تلاش کنید.";
+      empty.style.display = "block";
+    }
+  }
+
+  input.addEventListener("input", render);
+  init();
+</script>
 </body>
 </html>
