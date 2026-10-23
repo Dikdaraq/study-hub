@@ -4,116 +4,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="theme-color" content="#10131a">
   <title>جزوات ترم پنج</title>
-  <meta
-    name="description"
-    content="مجموعه جزوات و جلسات دروس ترم پنج داروسازی"
-  >
 
   <style>
     :root {
       color-scheme: dark;
-      --bg: #0b1120;
-      --panel: #151e30;
-      --panel-hover: #1c2940;
-      --border: #29364d;
-      --text: #edf2f7;
-      --muted: #a5b1c4;
-      --accent: #72d6c0;
-      --accent-dark: #163d3a;
+      --bg: #10131a;
+      --panel: #191e29;
+      --panel-hover: #202737;
+      --border: #303849;
+      --text: #f1f3f8;
+      --muted: #a3adbf;
+      --accent: #8db8ff;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      min-height: 100vh;
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(61, 103, 146, 0.18),
-          transparent 34rem
-        ),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
       font-family: Tahoma, Arial, sans-serif;
-      line-height: 1.8;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+      line-height: 1.9;
     }
 
     .container {
-      width: min(1100px, calc(100% - 32px));
-      margin-inline: auto;
+      width: min(100% - 32px, 1000px);
+      margin: 0 auto;
+      padding: 42px 0 60px;
     }
 
     header {
-      padding: 56px 0 30px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 4px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--accent);
-      font-size: 0.85rem;
+      margin-bottom: 28px;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.4;
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
     }
 
-    .intro {
-      max-width: 650px;
-      margin: 12px 0 0;
+    .subtitle {
+      margin: 0;
       color: var(--muted);
     }
 
-    .search-area {
-      margin: 18px 0 32px;
-    }
-
-    .search-area label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-      font-weight: bold;
+    .search-box {
+      margin: 24px 0 28px;
     }
 
     #search {
-      display: block;
       width: 100%;
       padding: 15px 17px;
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 13px;
       outline: none;
       background: var(--panel);
       color: var(--text);
       font: inherit;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    #search::placeholder {
-      color: #8190a7;
+      font-size: 1rem;
     }
 
     #search:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(114, 214, 192, 0.12);
+    }
+
+    #search::placeholder {
+      color: var(--muted);
+    }
+
+    .full-text-search {
+      margin: 0 0 30px;
+    }
+
+    .full-text-search h2 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+
+    .search-status {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .search-results {
+      display: grid;
+      gap: 12px;
+    }
+
+    .search-result {
+      display: block;
+      padding: 17px 19px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .search-result:hover {
+      border-color: var(--accent);
+      background: var(--panel-hover);
+    }
+
+    .search-result h3 {
+      margin: 0 0 5px;
+      font-size: 1.05rem;
+    }
+
+    .result-subject {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .result-excerpt {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      overflow-wrap: anywhere;
+    }
+
+    .search-result mark {
+      border-radius: 3px;
+      background: #f4d778;
+      color: #17202c;
+    }
+
+    .search-status:empty {
+      display: none;
     }
 
     .section-heading {
@@ -136,251 +158,374 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-      gap: 18px;
-      padding-bottom: 48px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+      gap: 16px;
     }
 
-    .card {
-      display: flex;
-      min-height: 225px;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 23px;
+    .subject-card {
+      display: block;
+      padding: 22px;
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 16px;
       background: var(--panel);
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
+    .subject-card:hover {
       border-color: var(--accent);
       background: var(--panel-hover);
+      transform: translateY(-2px);
     }
 
-    .card:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 4px;
-    }
-
-    .icon {
-      display: grid;
-      width: 52px;
-      height: 52px;
-      place-items: center;
-      margin-bottom: 12px;
-      border-radius: 15px;
-      background: var(--accent-dark);
-      font-size: 1.7rem;
-    }
-
-    .card h2 {
+    .subject-card h3 {
       margin: 0 0 8px;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
     }
 
-    .card p {
-      margin: 0 0 18px;
+    .subject-card p {
+      margin: 0;
       color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .count {
-      margin-top: auto;
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-
-    .empty-state {
-      display: none;
-      padding: 24px;
-      border: 1px dashed var(--border);
-      border-radius: 16px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .empty-state.visible {
-      display: block;
+      font-size: 0.92rem;
     }
 
     footer {
-      padding: 24px 0 32px;
-      border-top: 1px solid var(--border);
+      margin-top: 40px;
       color: var(--muted);
+      font-size: 0.85rem;
       text-align: center;
-      font-size: 0.9rem;
     }
 
-    [hidden] {
-      display: none !important;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding-top: 36px;
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 22px, 1000px);
+        padding-top: 25px;
       }
 
-      .grid {
-        gap: 12px;
-      }
-
-      .card {
-        min-height: 200px;
-        padding: 19px;
+      .search-result,
+      .subject-card {
+        padding: 16px;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <span class="eyebrow">Study Hub · داروسازی</span>
-
-      <h1>جزوات ترم پنج</h1>
-
-      <p class="intro">
-        جزوات، جلسات و منابع درسی را در یک مکان پیدا کنید.
-        برای پیدا کردن درس موردنظر از جست‌وجو استفاده کنید.
-      </p>
-    </div>
-  </header>
-
   <main class="container">
-    <div class="search-area">
-      <label for="search">جست‌وجوی درس</label>
+    <header>
+      <h1>جزوات ترم پنج</h1>
+      <p class="subtitle">
+        جزوات درسی را جست‌وجو کنید یا درس موردنظر خود را انتخاب کنید.
+      </p>
+    </header>
 
+    <!-- Search bar -->
+    <div class="search-box">
       <input
         id="search"
         type="search"
-        placeholder="نام درس را وارد کنید..."
+        placeholder="نام درس یا عبارت داخل جزوه را وارد کنید..."
         autocomplete="off"
+        aria-label="جست‌وجو در جزوات"
       >
     </div>
 
+    <!-- Full-text results appear here, below the search bar -->
+    <section
+      id="full-text-search"
+      class="full-text-search"
+      aria-live="polite"
+      hidden
+    >
+      <h2 id="search-results-heading">نتایج جست‌وجو</h2>
+      <p id="search-status" class="search-status"></p>
+      <div id="search-results" class="search-results"></div>
+    </section>
+
+    <!-- Subject heading -->
     <div class="section-heading">
       <h2>درس‌ها</h2>
       <span class="subject-count" id="subject-count">۲ درس</span>
     </div>
 
     <!--
-      برای اضافه کردن درس جدید، یک کارت دیگر با همین ساختار
-      داخل این section قرار دهید.
+      Keep your manually managed subject cards here.
+      Replace these examples with your actual cards if needed.
     -->
     <section class="grid" id="subjects">
-
-      <!-- فارماکوگنوزی -->
-      <a
-        class="card"
-        href="notes/pharmacognosy/"
-        data-search="فارماکوگنوزی pharmacognosy گیاهان دارویی ترکیبات طبیعی منابع دارویی"
-      >
-        <div class="icon" aria-hidden="true">🌿</div>
-        <h2>فارماکوگنوزی</h2>
-        <p>
-          گیاهان دارویی، ترکیبات طبیعی و منابع دارویی.
-        </p>
-        <span class="count">مشاهده درس‌ها ←</span>
+      <a class="subject-card" href="./notes/pharmacognosy/">
+        <h3>فارماکوگنوزی</h3>
+        <p>مشاهده جلسات و جزوات فارماکوگنوزی</p>
       </a>
 
-      <!-- فارماسیوتیکس ۲ -->
-      <a
-        class="card"
-        href="notes/pharmaceutics2/"
-        data-search="فارماسیوتیکس ۲ pharmaceutics2 pharmaceutics داروسازی فرمولاسیون دکتر ابراهیمی دکتر حیدری"
-      >
-        <div class="icon" aria-hidden="true">💊</div>
-        <h2>فارماسیوتیکس ۲</h2>
-        <p>
-          جزوه‌ها و جلسات درس به تفکیک استاد.
-        </p>
-        <span class="count">مشاهده درس‌ها ←</span>
+      <a class="subject-card" href="./notes/pharmaceutics2/">
+        <h3>فارماسیوتیکس ۲</h3>
+        <p>مشاهده جلسات و جزوات فارماسیوتیکس ۲</p>
       </a>
-
-      <!--
-        نمونه اضافه کردن درس جدید:
-
-        <a
-          class="card"
-          href="notes/toxicology/"
-          data-search="سم شناسی toxicology"
-        >
-          <div class="icon" aria-hidden="true">🧪</div>
-          <h2>سم‌شناسی</h2>
-          <p>جزوه‌ها و جلسات درس سم‌شناسی.</p>
-          <span class="count">مشاهده درس‌ها ←</span>
-        </a>
-      -->
-
     </section>
 
-    <div class="empty-state" id="empty-state" role="status">
-      درسی با این عبارت پیدا نشد.
-    </div>
+    <footer>
+      جزوات آموزشی
+    </footer>
   </main>
-
-  <footer>
-    <div class="container">
-      جزوات ترم پنج · Study Hub
-    </div>
-  </footer>
 
   <script>
     const search = document.getElementById('search');
-    const cards = Array.from(
-      document.querySelectorAll('#subjects .card')
-    );
-    const count = document.getElementById('subject-count');
-    const emptyState = document.getElementById('empty-state');
+    const searchSection = document.getElementById('full-text-search');
+    const resultsContainer = document.getElementById('search-results');
+    const searchStatus = document.getElementById('search-status');
 
+    let lessons = [];
+    let indexLoaded = false;
+    let indexError = false;
+
+    // Normalize Persian/Arabic letter variants for searching.
     function normalize(text) {
       return String(text || '')
-        .toLocaleLowerCase('fa')
-        .replace(/ي/g, 'ی')
+        .normalize('NFC')
+        .toLocaleLowerCase()
+        .replace(/[يى]/g, 'ی')
         .replace(/ك/g, 'ک')
-        .replace(/ۀ/g, 'ه')
-        .replace(/ة/g, 'ه')
+        .replace(/[ۀة]/g, 'ه')
+        .replace(/ؤ/g, 'و')
+        .replace(/إ|أ|ٱ/g, 'ا')
+        .replace(/ئ/g, 'ی')
+        .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
         .replace(/\s+/g, ' ')
         .trim();
     }
 
-    function filterCards() {
-      const query = normalize(search.value);
-      let visibleCount = 0;
-
-      cards.forEach(card => {
-        const searchableText = normalize(
-          card.innerText + ' ' +
-          (card.dataset.search || '') + ' ' +
-          (card.getAttribute('href') || '')
-        );
-
-        const matches = searchableText.includes(query);
-
-        card.hidden = !matches;
-
-        if (matches) {
-          visibleCount++;
-        }
-      });
-
-      count.textContent = `${visibleCount} از ${cards.length} درس`;
-
-      emptyState.classList.toggle(
-        'visible',
-        visibleCount === 0
-      );
+    function makeElement(tag, className, text) {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
     }
 
-    search.addEventListener('input', filterCards);
+    // Build a short excerpt around the first matching term.
+    function makeExcerpt(text, query, maxLength = 240) {
+      const original = String(text || '').replace(/\s+/g, ' ').trim();
 
-    filterCards();
+      if (original.length <= maxLength) return original;
+
+      const terms = query.split(/\s+/).filter(Boolean);
+      let position = -1;
+
+      // Find a match in the original text first.
+      for (const term of terms) {
+        position = normalize(original).indexOf(term);
+        if (position !== -1) break;
+      }
+
+      if (position === -1) {
+        return original.slice(0, maxLength).trim() + '…';
+      }
+
+      const start = Math.max(0, position - 75);
+      const end = Math.min(original.length, start + maxLength);
+
+      return (start > 0 ? '…' : '') +
+        original.slice(start, end).trim() +
+        (end < original.length ? '…' : '');
+    }
+
+    // Highlight matches safely using text nodes, not HTML injection.
+    function highlightMatches(container, text, query) {
+      const terms = [...new Set(query.split(/\s+/).filter(Boolean))]
+        .sort((a, b) => b.length - a.length);
+
+      const normalizedText = normalize(text);
+
+      // Normalization can change character positions, so fall back to
+      // plain text rather than risk highlighting the wrong characters.
+      if (normalizedText.length !== text.length) {
+        container.textContent = text;
+        return;
+      }
+
+      const ranges = [];
+
+      for (const term of terms) {
+        let position = 0;
+
+        while ((position = normalizedText.indexOf(term, position)) !== -1) {
+          ranges.push([position, position + term.length]);
+          position += Math.max(term.length, 1);
+        }
+      }
+
+      ranges.sort((a, b) => a[0] - b[0]);
+
+      let cursor = 0;
+
+      for (const [start, end] of ranges) {
+        if (start < cursor) continue;
+
+        container.appendChild(
+          document.createTextNode(text.slice(cursor, start))
+        );
+
+        const mark = document.createElement('mark');
+        mark.textContent = text.slice(start, end);
+        container.appendChild(mark);
+
+        cursor = end;
+      }
+
+      container.appendChild(document.createTextNode(text.slice(cursor)));
+    }
+
+    function renderResults(matches, query) {
+      resultsContainer.replaceChildren();
+
+      if (indexError) {
+        searchStatus.textContent =
+          'بارگذاری فهرست جست‌وجو ناموفق بود. لطفاً صفحه را دوباره بارگذاری کنید.';
+        return;
+      }
+
+      if (!indexLoaded) {
+        searchStatus.textContent = 'در حال بارگذاری جزوه‌ها…';
+        return;
+      }
+
+      if (!query) {
+        searchSection.hidden = true;
+        return;
+      }
+
+      searchSection.hidden = false;
+
+      if (query.length < 2) {
+        searchStatus.textContent =
+          'برای جست‌وجو، حداقل دو نویسه وارد کنید.';
+        return;
+      }
+
+      searchStatus.textContent = `${matches.length} نتیجه پیدا شد.`;
+
+      if (!matches.length) {
+        searchStatus.textContent =
+          'نتیجه‌ای پیدا نشد. املای عبارت را بررسی کنید.';
+        return;
+      }
+
+      const visibleMatches = matches.slice(0, 50);
+
+      for (const lesson of visibleMatches) {
+        const link = makeElement('a', 'search-result');
+        link.href = './' + lesson.path;
+
+        const title = makeElement(
+          'h3',
+          '',
+          lesson.title || lesson.filename || 'جزوه'
+        );
+
+        const subject = makeElement(
+          'p',
+          'result-subject',
+          lesson.subject || 'جزوه'
+        );
+
+        const excerpt = makeElement('p', 'result-excerpt');
+        const excerptText = makeExcerpt(lesson.text, query);
+
+        highlightMatches(excerpt, excerptText, query);
+        link.append(title, subject, excerpt);
+        resultsContainer.appendChild(link);
+      }
+
+      if (matches.length > visibleMatches.length) {
+        searchStatus.textContent =
+          `${matches.length} نتیجه پیدا شد؛ ۵۰ نتیجه اول نمایش داده می‌شوند.`;
+      }
+    }
+
+    function searchLessons() {
+      const query = normalize(search.value);
+
+      if (!query) {
+        searchSection.hidden = true;
+        resultsContainer.replaceChildren();
+        searchStatus.textContent = '';
+        return;
+      }
+
+      searchSection.hidden = false;
+
+      if (!indexLoaded || indexError) {
+        renderResults([], query);
+        return;
+      }
+
+      const terms = query.split(/\s+/).filter(Boolean);
+
+      const matches = lessons
+        .filter(lesson => {
+          const searchableText = normalize([
+            lesson.title,
+            lesson.subject,
+            lesson.filename,
+            lesson.text
+          ].join(' '));
+
+          // All entered terms must be present; terms may be Persian or English.
+          return terms.every(term => searchableText.includes(term));
+        })
+        .sort((a, b) => {
+          function score(lesson) {
+            const title = normalize(lesson.title);
+            const subject = normalize(lesson.subject);
+            let points = 0;
+
+            for (const term of terms) {
+              if (title.includes(term)) points += 5;
+              if (subject.includes(term)) points += 3;
+            }
+
+            return points;
+          }
+
+          return score(b) - score(a);
+        });
+
+      renderResults(matches, query);
+    }
+
+    search.addEventListener('input', searchLessons);
+
+    async function loadSearchIndex() {
+      try {
+        const response = await fetch('./search-index.json');
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data)) {
+          throw new Error('Invalid search index format');
+        }
+
+        lessons = data.filter(lesson =>
+          lesson &&
+          typeof lesson.path === 'string' &&
+          typeof lesson.text === 'string'
+        );
+
+        indexLoaded = true;
+        searchLessons();
+      } catch (error) {
+        console.error('Could not load lesson search index:', error);
+        indexError = true;
+        searchLessons();
+      }
+    }
+
+    loadSearchIndex();
   </script>
 </body>
 </html>
