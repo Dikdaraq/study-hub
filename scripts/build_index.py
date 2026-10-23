@@ -12,6 +12,7 @@ OUTPUT_FILE = ROOT / "search-index.json"
 
 SUBJECT_NAMES = {
     "pharmacognosy": "فارماکوگنوزی",
+    "pharmaceutics2": "فارماسیوتیکس ۲",
     "toxicology": "سم‌شناسی",
     "pharmacology": "فارماکولوژی",
     "biochemistry": "بیوشیمی",
