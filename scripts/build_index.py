@@ -95,8 +95,8 @@ def main():
         else:
             subject = display_name(subject_folder)
 
-                subject_folder = parts[0]
-                subject = display_name(subject_folder)
+            subject_folder = parts[0]
+            subject = display_name(subject_folder)
 
         try:
             source = file_path.read_text(encoding="utf-8-sig")
