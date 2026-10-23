@@ -5,286 +5,775 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080d1a">
+
   <title>فارماسیوتیکس ۲ | کتابخانه آموزشی</title>
+
   <style>
     :root {
       color-scheme: dark;
       --bg: #080d1a;
-      --panel: rgba(19,27,48,.78);
-      --line: rgba(255,255,255,.1);
+      --panel: rgba(19, 27, 48, .78);
+      --line: rgba(255, 255, 255, .1);
       --text: #f3f5ff;
       --muted: #a5aec7;
       --accent: #67e8f9;
       --accent2: #a78bfa;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0; min-height: 100vh; color: var(--text);
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
       font-family: Tahoma, "Vazirmatn", "Segoe UI", sans-serif;
       background:
-        radial-gradient(ellipse at 15% 5%,rgba(6,182,212,.18),transparent 35%),
-        radial-gradient(ellipse at 90% 25%,rgba(124,58,237,.17),transparent 30%),
+        radial-gradient(
+          ellipse at 15% 5%,
+          rgba(6, 182, 212, .18),
+          transparent 35%
+        ),
+        radial-gradient(
+          ellipse at 90% 25%,
+          rgba(124, 58, 237, .17),
+          transparent 30%
+        ),
         var(--bg);
     }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1000px,calc(100% - 36px)); margin: auto; }
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 26px 0;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+
+    .wrap {
+      width: min(1000px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 26px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+
     .logo {
-      display: grid; place-items: center; width: 44px; height: 44px;
-      border-radius: 14px; color: #0b1020; font-size: 22px;
-      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      color: #0b1020;
+      font-size: 22px;
+      background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+      );
       box-shadow: 0 8px 30px #67e8f933;
     }
+
     .brand small {
-      display: block; color: var(--muted); font-size: 10px;
-      letter-spacing: 1px; margin-top: 5px; font-weight: 500;
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+      margin-top: 5px;
+      font-weight: 500;
     }
+
     .back {
-      color: var(--muted); border: 1px solid var(--line);
-      padding: 11px 14px; border-radius: 12px; transition: .2s;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 11px 14px;
+      border-radius: 12px;
+      transition: .2s;
       white-space: nowrap;
     }
-    .back:hover { color: white; border-color: var(--accent); transform: translateY(-2px); }
-    .hero { padding: 65px 0 34px; animation: rise .65s ease both; }
-    .eyebrow { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: 1px; }
-    h1 { font-size: clamp(34px,7vw,62px); margin: 18px 0; line-height: 1.5; }
-    .description { color: var(--muted); line-height: 2; max-width: 700px; }
+
+    .back:hover {
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 65px 0 34px;
+      animation: rise .65s ease both;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 7vw, 62px);
+      margin: 18px 0;
+      line-height: 1.5;
+    }
+
+    .description {
+      color: var(--muted);
+      line-height: 2;
+      max-width: 700px;
+    }
+
     .search {
-      display: flex; gap: 12px; align-items: center; margin: 28px 0 12px;
-      padding: 8px 18px; border: 1px solid var(--line);
-      background: #ffffff0b; border-radius: 17px; transition: .25s;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin: 28px 0 12px;
+      padding: 8px 18px;
+      border: 1px solid var(--line);
+      background: #ffffff0b;
+      border-radius: 17px;
+      transition: .25s;
     }
+
     .search:focus-within {
-      border-color: var(--accent); box-shadow: 0 0 0 4px #67e8f91a;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px #67e8f91a;
     }
-    .search span { color: var(--accent); font-size: 25px; }
+
+    .search span {
+      color: var(--accent);
+      font-size: 25px;
+    }
+
     input {
-      width: 100%; min-width: 0; border: 0; outline: 0;
-      color: var(--text); background: transparent; padding: 13px 0;
-      font: inherit; font-size: 14px;
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      color: var(--text);
+      background: transparent;
+      padding: 13px 0;
+      font: inherit;
+      font-size: 14px;
     }
-    input::placeholder { color: #7e89a5; }
-    .count { color: var(--muted); font-size: 13px; margin: 18px 0; }
+
+    input::placeholder {
+      color: #7e89a5;
+    }
+
+    .count {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 18px 0;
+    }
+
+    /* Main container for teacher sections */
     .lessons {
-      display: grid; grid-template-columns: repeat(auto-fit,minmax(245px,1fr));
-      gap: 16px; padding: 12px 0 65px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 12px 0 65px;
     }
-    .lesson {
-      display: block; min-height: 155px; padding: 23px;
-      border: 1px solid var(--line); border-radius: 20px;
-      background: var(--panel); backdrop-filter: blur(14px);
-      transition: transform .25s,border-color .25s,box-shadow .25s;
+
+    .teacher-section {
+      min-width: 0;
       animation: rise .45s ease both;
     }
+
+    .teacher-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 20px;
+      padding: 0 14px 13px 0;
+      border-right: 4px solid var(--accent);
+      border-bottom: 1px solid var(--line);
+      font-size: clamp(20px, 4vw, 25px);
+      line-height: 1.8;
+    }
+
+    .teacher-heading .teacher-icon {
+      font-size: 25px;
+    }
+
+    .teacher-heading .teacher-count {
+      margin-right: auto;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 245px), 1fr)
+      );
+      gap: 16px;
+    }
+
+    .lesson {
+      display: block;
+      min-width: 0;
+      min-height: 155px;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      transition:
+        transform .25s,
+        border-color .25s,
+        box-shadow .25s;
+      animation: rise .45s ease both;
+      overflow-wrap: anywhere;
+    }
+
     .lesson:hover {
-      transform: translateY(-6px); border-color: #67e8f999;
+      transform: translateY(-6px);
+      border-color: #67e8f999;
       box-shadow: 0 18px 45px #0004;
     }
-    .lesson-icon { font-size: 25px; margin-bottom: 16px; }
-    .lesson h2 { font-size: 17px; line-height: 1.9; margin: 0 0 10px; }
-    .lesson p { color: var(--muted); font-size: 13px; line-height: 2; margin: 0; }
-    mark { background: #facc1544; color: #fde68a; border-radius: 3px; padding: 0 2px; }
+
+    .lesson-icon {
+      font-size: 25px;
+      margin-bottom: 16px;
+    }
+
+    .lesson h3 {
+      font-size: 17px;
+      line-height: 1.9;
+      margin: 0 0 10px;
+    }
+
+    .lesson p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+      margin: 0;
+    }
+
+    mark {
+      background: #facc1544;
+      color: #fde68a;
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
     .empty {
-      display: none; padding: 30px 20px; text-align: center; color: var(--muted);
-      border: 1px dashed var(--line); border-radius: 18px; line-height: 2;
+      display: none;
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      border-radius: 18px;
+      line-height: 2;
+      margin-bottom: 40px;
     }
+
     footer {
-      border-top: 1px solid var(--line); padding: 24px 0 32px;
-      color: var(--muted); font-size: 12px; display: flex;
-      justify-content: space-between; flex-wrap: wrap; gap: 14px; line-height: 2;
+      border-top: 1px solid var(--line);
+      padding: 24px 0 32px;
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      line-height: 2;
     }
-    .credit { color: var(--accent); direction: ltr; }
+
+    .credit {
+      color: var(--accent);
+      direction: ltr;
+    }
+
     @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    @media(max-width:560px) {
-      header { padding: 18px 0; }
-      .hero { padding-top: 42px; }
-      .lessons { grid-template-columns: 1fr; }
-      .brand small { letter-spacing: 0; }
+
+    @media (max-width: 560px) {
+      header {
+        padding: 18px 0;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .back {
+        padding: 9px 10px;
+        font-size: 12px;
+      }
+
+      .brand small {
+        letter-spacing: 0;
+      }
+
+      .teacher-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson {
+        min-height: 130px;
+      }
+
+      .teacher-heading .teacher-count {
+        font-size: 11px;
+      }
     }
-    @media(prefers-reduced-motion:reduce) {
-      *,*::before,*::after {
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
+
 <body>
-<div class="wrap">
-  <header>
-    <a class="brand" href="../../index.html">
-      <span class="logo">د</span>
-      <span>کتابخانه آموزشی<small>مجموعه جزوات و منابع درسی</small></span>
-    </a>
-    <a class="back" href="../../index.html">← بازگشت به صفحه اصلی</a>
-  </header>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="../../index.html">
+        <span class="logo">د</span>
+        <span>
+          کتابخانه آموزشی
+          <small>مجموعه جزوات و منابع درسی</small>
+        </span>
+      </a>
 
-  <main>
-    <section class="hero">
-      <div class="eyebrow">کتابخانه دروس / ۰۲</div>
-      <h1>فارماسیوتیکس ۲<span style="color:var(--accent)">.</span></h1>
-      <p class="description">
-        جزوات و جلسات درس فارماسیوتیکس ۲ را مرور کنید یا با جست‌وجوی عنوان و متن جزوات، مطلب موردنظرتان را پیدا کنید.
-      </p>
-      <label class="search">
-        <span>⌕</span>
-        <input id="search" type="search" placeholder="جست‌وجو در عنوان و متن جزوات..." autocomplete="off">
-      </label>
-      <p class="count" id="count" aria-live="polite">در حال بارگذاری جزوات...</p>
-    </section>
+      <a class="back" href="../../index.html">
+        ← بازگشت به صفحه اصلی
+      </a>
+    </header>
 
-    <section class="lessons" id="lessons" aria-label="جزوات فارماسیوتیکس ۲"></section>
-    <div class="empty" id="empty">جزوه‌ای با این عبارت پیدا نشد.</div>
-  </main>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">کتابخانه دروس / ۰۲</div>
 
-  <footer>
-    <span>فارماسیوتیکس ۲ · جزوات و منابع آموزشی</span>
-    <a class="credit" href="https://github.com/Dikdaraq" target="_blank" rel="noopener noreferrer">Designed by Ali Mohammadi Dikdaraq</a>
-  </footer>
-</div>
+        <h1>
+          فارماسیوتیکس ۲<span style="color:var(--accent)">.</span>
+        </h1>
 
-<script>
-  const FOLDER = "notes/pharmaceutics2/";
-  const INDEX_URL = "../../search-index.json";
-  const input = document.getElementById("search");
-  const grid = document.getElementById("lessons");
-  const count = document.getElementById("count");
-  const empty = document.getElementById("empty");
-  let lessons = [];
+        <p class="description">
+          جزوات و جلسات درس فارماسیوتیکس ۲ را بر اساس استاد مشاهده کنید.
+          با جست‌وجوی عنوان، نام استاد یا متن جزوات، مطلب موردنظرتان را پیدا کنید.
+        </p>
 
-  function normalize(value) {
-    return String(value || "")
-      .normalize("NFKC")
-      .replace(/[يى]/g, "ی")
-      .replace(/ك/g, "ک")
-      .replace(/[أإٱآ]/g, "ا")
-      .replace(/ة/g, "ه")
-      .replace(/ؤ/g, "و")
-      .replace(/ئ/g, "ی")
-      .replace(/ـ/g, "")
-      .replace(/[\u064B-\u065F\u0670]/g, "")
-      .toLowerCase().trim();
-  }
+        <label class="search">
+          <span>⌕</span>
+          <input
+            id="search"
+            type="search"
+            placeholder="جست‌وجو در عنوان، نام استاد و متن جزوات..."
+            autocomplete="off"
+            aria-label="جست‌وجو در جزوات"
+          >
+        </label>
 
-  function escapeHTML(value) {
-    return String(value).replace(/[&<>"']/g, ch => ({
-      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-    })[ch]);
-  }
+        <p class="count" id="count" aria-live="polite">
+          در حال بارگذاری جزوات...
+        </p>
+      </section>
 
-  function highlight(text, query) {
-    const original = String(text || "");
-    const normalized = normalize(original);
-    const terms = normalize(query).split(/\s+/).filter(Boolean);
-    let best = -1, bestTerm = "";
+      <section
+        class="lessons"
+        id="lessons"
+        aria-label="جزوات فارماسیوتیکس ۲"
+      ></section>
 
-    for (const term of terms) {
-      const index = normalized.indexOf(term);
-      if (index >= 0 && (best < 0 || index < best)) {
-        best = index;
-        bestTerm = term;
+      <div class="empty" id="empty">
+        جزوه‌ای با این عبارت پیدا نشد.
+      </div>
+    </main>
+
+    <footer>
+      <span>فارماسیوتیکس ۲ · جزوات و منابع آموزشی</span>
+
+      <a
+        class="credit"
+        href="https://github.com/Dikdaraq"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Designed by Ali Mohammadi Dikdaraq
+      </a>
+    </footer>
+  </div>
+
+  <script>
+    const FOLDER = "notes/pharmaceutics2/";
+    const INDEX_URL = "../../search-index.json";
+
+    const input = document.getElementById("search");
+    const grid = document.getElementById("lessons");
+    const count = document.getElementById("count");
+    const empty = document.getElementById("empty");
+
+    let lessons = [];
+
+    const TEACHERS = [
+      {
+        id: "dr-ebrahimi",
+        name: "دکتر ابراهیمی"
+      },
+      {
+        id: "dr-heydari",
+        name: "دکتر حیدری"
       }
+    ];
+
+    function normalize(value) {
+      return String(value || "")
+        .normalize("NFKC")
+        .replace(/[يى]/g, "ی")
+        .replace(/ك/g, "ک")
+        .replace(/[أإٱآ]/g, "ا")
+        .replace(/ة/g, "ه")
+        .replace(/ؤ/g, "و")
+        .replace(/ئ/g, "ی")
+        .replace(/ـ/g, "")
+        .replace(/[\u064B-\u065F\u0670]/g, "")
+        .toLowerCase()
+        .trim();
     }
 
-    if (best < 0 || best >= original.length) return escapeHTML(original);
-
-    return escapeHTML(original.slice(0, best)) +
-      "<mark>" + escapeHTML(original.slice(best, best + bestTerm.length)) + "</mark>" +
-      escapeHTML(original.slice(best + bestTerm.length));
-  }
-
-  function excerpt(text, query) {
-    const source = String(text || "").replace(/\s+/g, " ").trim();
-    if (!source) return "برای مطالعه، این جزوه را باز کنید.";
-    const haystack = normalize(source);
-    const terms = normalize(query).split(/\s+/).filter(Boolean);
-    let pos = -1;
-
-    for (const term of terms) {
-      pos = haystack.indexOf(term);
-      if (pos >= 0) break;
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, ch => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[ch]);
     }
 
-    if (pos < 0) return source.slice(0, 150) + (source.length > 150 ? "…" : "");
-    const start = Math.max(0, pos - 55);
-    const end = Math.min(source.length, pos + 110);
-    return (start ? "…" : "") + source.slice(start, end) +
-      (end < source.length ? "…" : "");
-  }
+    /*
+     * Find the original text position using normalized text.
+     * This avoids relying on normalized character offsets for highlighting.
+     */
+    function highlight(text, query) {
+      const original = String(text || "");
+      const terms = normalize(query)
+        .split(/\s+/)
+        .filter(Boolean);
 
-  function render() {
-    const query = input.value;
-    const terms = normalize(query).split(/\s+/).filter(Boolean);
+      if (!terms.length) {
+        return escapeHTML(original);
+      }
 
-    const filtered = lessons.filter(item => {
-      const searchable = normalize([
-        item.title, item.subject, item.filename, item.text, item.path
-      ].join(" "));
-      return terms.every(term => searchable.includes(term));
-    });
+      // Find a match in the original string when possible.
+      const lowerOriginal = original.toLowerCase();
+      let bestStart = -1;
+      let bestEnd = -1;
 
-    grid.replaceChildren();
-    empty.style.display = filtered.length ? "none" : "block";
-    count.textContent = `${filtered.length} جزوه${query.trim() ? " پیدا شد" : " موجود است"}`;
+      for (const term of terms) {
+        let pos = lowerOriginal.indexOf(term);
 
-    filtered.forEach((item, i) => {
-      const card = document.createElement("a");
-      card.className = "lesson";
+        if (pos >= 0 && (bestStart < 0 || pos < bestStart)) {
+          bestStart = pos;
+          bestEnd = pos + term.length;
+        }
+      }
 
-      const lessonPath = String(item.path || "")
+      if (bestStart >= 0) {
+        return escapeHTML(original.slice(0, bestStart)) +
+          "<mark>" +
+          escapeHTML(original.slice(bestStart, bestEnd)) +
+          "</mark>" +
+          escapeHTML(original.slice(bestEnd));
+      }
+
+      return escapeHTML(original);
+    }
+
+    function excerpt(text, query) {
+      const source = String(text || "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      if (!source) {
+        return "برای مطالعه، این جزوه را باز کنید.";
+      }
+
+      const terms = normalize(query)
+        .split(/\s+/)
+        .filter(Boolean);
+
+      if (!terms.length) {
+        return source.slice(0, 150) +
+          (source.length > 150 ? "…" : "");
+      }
+
+      const normalizedSource = normalize(source);
+      let pos = -1;
+
+      for (const term of terms) {
+        pos = normalizedSource.indexOf(term);
+        if (pos >= 0) break;
+      }
+
+      if (pos < 0) {
+        return source.slice(0, 150) +
+          (source.length > 150 ? "…" : "");
+      }
+
+      const start = Math.max(0, pos - 55);
+      const end = Math.min(source.length, pos + 110);
+
+      return (start ? "…" : "") +
+        source.slice(start, end) +
+        (end < source.length ? "…" : "");
+    }
+
+    function getTeacher(item) {
+      const path = String(item.path || "")
+        .replace(/^\.?\//, "")
+        .toLowerCase();
+
+      const subject = normalize(item.subject || "");
+
+      // Prefer the teacher's folder in the lesson path.
+      if (path.startsWith(FOLDER + "dr-ebrahimi/")) {
+        return TEACHERS[0];
+      }
+
+      if (path.startsWith(FOLDER + "dr-heydari/")) {
+        return TEACHERS[1];
+      }
+
+      // Fallback to the subject field in search-index.json.
+      if (subject.includes(normalize("دکتر ابراهیمی"))) {
+        return TEACHERS[0];
+      }
+
+      if (subject.includes(normalize("دکتر حیدری"))) {
+        return TEACHERS[1];
+      }
+
+      return {
+        id: "other",
+        name: "سایر جزوات"
+      };
+    }
+
+    function resolveLessonPath(path) {
+      const cleanPath = String(path || "")
         .replace(/^\.?\//, "");
 
-      card.href = "../../" + lessonPath;
-      card.style.animationDelay = `${Math.min(i * 35, 350)}ms`;
+      // The search index stores repository-relative paths.
+      // Resolve them from the nested subject page.
+      if (
+        cleanPath.startsWith("https://") ||
+        cleanPath.startsWith("http://")
+      ) {
+        return cleanPath;
+      }
+
+      if (cleanPath.startsWith("study-hub/")) {
+        return "../../" + cleanPath.slice("study-hub/".length);
+      }
+
+      return "../../" + cleanPath;
+    }
+
+    function createLessonCard(item, query, index) {
+      const card = document.createElement("a");
+      card.className = "lesson";
+      card.href = resolveLessonPath(item.path);
+      card.style.animationDelay =
+        `${Math.min(index * 35, 350)}ms`;
 
       const icon = document.createElement("div");
       icon.className = "lesson-icon";
       icon.textContent = "📘";
+      icon.setAttribute("aria-hidden", "true");
 
-      const title = document.createElement("h2");
-      title.innerHTML = highlight(item.title || item.filename || "جزوه بدون عنوان", query);
+      const title = document.createElement("h3");
+      title.innerHTML = highlight(
+        item.title || item.filename || "جزوه بدون عنوان",
+        query
+      );
 
       const description = document.createElement("p");
-      description.innerHTML = highlight(excerpt(item.text || "", query), query);
+      description.innerHTML = highlight(
+        excerpt(item.text || "", query),
+        query
+      );
 
       card.append(icon, title, description);
-      grid.appendChild(card);
-    });
-  }
 
-  async function init() {
-    try {
-      const response = await fetch(INDEX_URL, { cache: "no-store" });
-      if (!response.ok) throw new Error("Index unavailable");
-
-      const data = await response.json();
-      lessons = data.filter(item =>
-        String(item.path || "").replace(/^\.?\//, "").startsWith(FOLDER)
-      );
-
-      lessons.sort((a, b) =>
-        String(a.title || a.filename || "").localeCompare(
-          String(b.title || b.filename || ""), "fa"
-        )
-      );
-
-      render();
-    } catch {
-      count.textContent = "بارگذاری جزوات با مشکل مواجه شد.";
-      empty.textContent = "فهرست جزوات در دسترس نیست. پس از تکمیل انتشار سایت، دوباره تلاش کنید.";
-      empty.style.display = "block";
+      return card;
     }
-  }
 
-  input.addEventListener("input", render);
-  init();
-</script>
+    function render() {
+      const query = input.value;
+      const terms = normalize(query)
+        .split(/\s+/)
+        .filter(Boolean);
+
+      const filtered = lessons.filter(item => {
+        const teacher = getTeacher(item);
+
+        const searchable = normalize([
+          item.title,
+          item.subject,
+          teacher.name,
+          item.filename,
+          item.text,
+          item.path
+        ].join(" "));
+
+        return terms.every(term => searchable.includes(term));
+      });
+
+      grid.replaceChildren();
+
+      count.textContent =
+        `${filtered.length} جزوه` +
+        (query.trim() ? " پیدا شد" : " موجود است");
+
+      empty.style.display = filtered.length ? "none" : "block";
+
+      if (!filtered.length) {
+        return;
+      }
+
+      const groups = new Map();
+
+      filtered.forEach(item => {
+        const teacher = getTeacher(item);
+
+        if (!groups.has(teacher.id)) {
+          groups.set(teacher.id, {
+            teacher,
+            items: []
+          });
+        }
+
+        groups.get(teacher.id).items.push(item);
+      });
+
+      const order = [
+        "dr-ebrahimi",
+        "dr-heydari",
+        "other"
+      ];
+
+      order.forEach(teacherId => {
+        const group = groups.get(teacherId);
+
+        if (!group || !group.items.length) {
+          return;
+        }
+
+        const section = document.createElement("section");
+        section.className = "teacher-section";
+        section.setAttribute("aria-label", group.teacher.name);
+
+        const heading = document.createElement("h2");
+        heading.className = "teacher-heading";
+
+        const teacherIcon = document.createElement("span");
+        teacherIcon.className = "teacher-icon";
+        teacherIcon.textContent = "👨‍🏫";
+        teacherIcon.setAttribute("aria-hidden", "true");
+
+        const teacherName = document.createElement("span");
+        teacherName.textContent = group.teacher.name;
+
+        const teacherCount = document.createElement("span");
+        teacherCount.className = "teacher-count";
+        teacherCount.textContent =
+          `${group.items.length} جزوه`;
+
+        heading.append(
+          teacherIcon,
+          teacherName,
+          teacherCount
+        );
+
+        const teacherGrid = document.createElement("div");
+        teacherGrid.className = "teacher-grid";
+
+        group.items.forEach((item, index) => {
+          teacherGrid.appendChild(
+            createLessonCard(item, query, index)
+          );
+        });
+
+        section.append(heading, teacherGrid);
+        grid.appendChild(section);
+      });
+    }
+
+    async function init() {
+      try {
+        const response = await fetch(INDEX_URL, {
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          throw new Error("Search index unavailable");
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data)) {
+          throw new Error("Invalid search index format");
+        }
+
+        lessons = data.filter(item => {
+          const path = String(item.path || "")
+            .replace(/^\.?\//, "");
+
+          return path.startsWith(FOLDER);
+        });
+
+        lessons.sort((a, b) =>
+          String(a.title || a.filename || "").localeCompare(
+            String(b.title || b.filename || ""),
+            "fa"
+          )
+        );
+
+        render();
+      } catch (error) {
+        console.error("Could not load Pharmaceutics 2 lessons:", error);
+
+        count.textContent = "بارگذاری جزوات با مشکل مواجه شد.";
+        empty.textContent =
+          "فهرست جزوات در دسترس نیست. پس از بررسی فایل search-index.json و انتشار سایت، دوباره تلاش کنید.";
+        empty.style.display = "block";
+      }
+    }
+
+    input.addEventListener("input", render);
+
+    init();
+  </script>
 </body>
 </html>
