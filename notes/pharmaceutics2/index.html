@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>فارماسیوتیکس ۲ | مرکز دانش من</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101827;
+      --panel: #1b2638;
+      --text: #edf2fa;
+      --muted: #9baac0;
+      --accent: #83aaff;
+      --border: #2d3a50;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.9;
+    }
+
+    header, main {
+      max-width: 900px;
+      margin: auto;
+      padding: 28px 24px;
+    }
+
+    header { border-bottom: 1px solid var(--border); }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+
+    .muted { color: var(--muted); }
+
+    .teacher {
+      margin: 20px 0;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .lesson {
+      display: block;
+      padding: 14px;
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+    }
+
+    .lesson:hover { border-color: var(--accent); }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: .85rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="../../index.html">← بازگشت به مرکز دانش</a>
+    <h1>💊 فارماسیوتیکس ۲</h1>
+    <p class="muted">جزوه‌ها و جلسات درس به تفکیک استاد</p>
+  </header>
+
+  <main>
+    <section class="teacher">
+      <h2>دکتر ابراهیمی</h2>
+      <p class="muted">جلسات و جزوه‌های این استاد</p>
+      <a class="lesson" href="dr-ebrahimi/session1.html">
+        جلسه اول — دکتر ابراهیمی ←
+      </a>
+    </section>
+
+    <section class="teacher">
+      <h2>دکتر حیدری</h2>
+      <p class="muted">جلسات و جزوه‌های این استاد</p>
+      <p>هنوز جزوه‌ای اضافه نشده است.</p>
+    </section>
+  </main>
+
+  <footer>
+    مرکز دانش من
+    <p>Designed by <strong>Ali Mohammadi Dikdaraq</strong></p>
+  </footer>
+</body>
+</html>
