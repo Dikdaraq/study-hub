@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>خلاصه جلسه دوم | فارماکوگنوزی ۱</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f7f1de; --panel:#fffbee; --panel2:#f0e8cc; --line:#d9ccA0;
+  --ink:#1c2a25; --dim:#4a5a52;
+  --mal:#0f5646; --mal2:#1f7a64; --mal-bg:#dcebdf;
+  --gold:#8a6a1c;
+  --c1:#0f5646; --c2:#1d6f7a; --c3:#8a5a1c;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Vazirmatn',Tahoma,sans-serif;line-height:2;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header.top{background:linear-gradient(135deg,#0b4a3c,#1f7a64);color:#fdf6dc;padding:40px 18px 30px}
+.kicker{font-size:14px;font-weight:600;color:#f1d98a;margin-bottom:8px}
+h1{font-size:clamp(21px,4vw,30px);font-weight:800;margin:0 0 10px;line-height:1.6}
+.desc{font-size:14.5px;max-width:680px;margin:0;color:#eaf1e4}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(247,241,222,.96);backdrop-filter:blur(6px);border-bottom:2px solid var(--mal);padding:10px 18px}
+.toc-in{max-width:900px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap}
+.toc-in a{text-decoration:none;font-size:13px;font-weight:700;border:1.5px solid currentColor;padding:5px 14px;border-radius:999px;white-space:nowrap;background:var(--panel)}
+.t1{color:var(--c1)}.t2{color:var(--c2)}.t3{color:var(--c3)}
+section.chapter{padding:38px 0 14px;border-bottom:1px solid var(--line)}
+.ch-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.ch-num{font-size:13px;font-weight:800;padding:3px 13px;border-radius:999px;color:#fff;background:var(--c)}
+.s1{--c:var(--c1)}.s2{--c:var(--c2)}.s3{--c:var(--c3)}
+h2{font-size:clamp(19px,3vw,23px);font-weight:800;margin:0;color:var(--c)}
+.sub{color:var(--dim);font-size:14px;margin:4px 0 20px}
+h3{font-size:16.5px;font-weight:700;margin:28px 0 8px;display:flex;align-items:center;gap:9px}
+h3::before{content:"";width:9px;height:9px;background:var(--c);transform:rotate(45deg);flex:0 0 auto}
+p{margin:0 0 11px;font-size:15px}
+ul,ol{margin:0 0 12px;padding-inline-start:22px;font-size:15px}
+li{margin-bottom:4px}
+b{color:var(--mal);font-weight:700}
+.en{direction:ltr;unicode-bidi:isolate;font-size:.95em;color:var(--dim)}
+.key{background:var(--panel);border:1px solid var(--line);border-inline-start:5px solid var(--c);border-radius:8px;padding:12px 15px;margin:12px 0 18px;font-size:14.5px}
+.key .kl{display:block;font-size:12px;font-weight:800;color:var(--gold);margin-bottom:4px}
+.key ul{margin-bottom:0}
+.tbl-wrap{overflow-x:auto;margin:12px 0 20px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);border:1px solid var(--line)}
+caption{text-align:right;font-weight:700;font-size:13px;color:var(--gold);padding:6px 4px}
+th,td{padding:8px 11px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
+th{background:var(--mal);color:#fff;font-weight:700}
+tr:nth-child(even) td{background:#f8f1d6}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0 18px;padding:12px;background:var(--panel2);border:1px dashed var(--mal2);border-radius:8px;font-size:13px}
+.step{background:var(--panel);border:1px solid var(--mal2);border-radius:7px;padding:6px 11px;font-weight:600;text-align:center}
+.arr{color:var(--gold);font-weight:800}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 15px}
+.card h4{margin:0 0 6px;font-size:14px;color:var(--mal)}
+.card ul{margin:0;font-size:13.5px}
+@media(max-width:640px){.two{grid-template-columns:1fr}}
+.back{display:inline-block;margin-top:8px;font-size:12.5px;color:var(--dim);text-decoration:none;border-bottom:1px dashed var(--dim)}
+footer{max-width:900px;margin:10px auto 0;padding:24px 18px 40px;text-align:center;font-size:13px;color:var(--dim)}
+.sign{display:block;margin-top:10px;font-weight:800;color:var(--mal);font-size:15px;direction:ltr;letter-spacing:.3px}
+@media print{nav.toc{position:static}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="kicker">خلاصه جمع‌بندی پیش از امتحان — فارماکوگنوزی ۱</div>
+  <h1>استخراج، جداسازی و شناسایی فرآورده‌های طبیعی</h1>
+  <p class="desc">خلاصه جزوه جلسه دوم: روش‌های عصاره‌گیری، تکنیک‌های کروماتوگرافی (CC، FC، VLC، HPLC، GC، TLC) و روش‌های شناسایی ساختار (IR، NMR، MS).</p>
+</div></header>
+
+<nav class="toc"><div class="toc-in">
+  <a href="#ext" class="t1">۱. استخراج</a>
+  <a href="#sep" class="t2">۲. جداسازی</a>
+  <a href="#idn" class="t3">۳. شناسایی</a>
+</div></nav>
+
+<main class="wrap">
+
+<section class="chapter s1" id="ext">
+  <div class="ch-head"><span class="ch-num">بخش ۱</span><h2>استخراج فرآورده‌های طبیعی <span class="en">(Extraction)</span></h2></div>
+  <p class="sub">چهار روش اصلی: خیساندن، پرکولاسیون، سوکسله و فراصوت. دو روش اول تقریباً برای همه ترکیبات گیاهی کارایی دارند.</p>
+
+  <div class="tbl-wrap"><table>
+    <caption>مقایسه روش‌های استخراج</caption>
+    <thead><tr><th>روش</th><th>شرح</th><th>دما</th><th>نکته امتحانی</th></tr></thead>
+    <tbody>
+      <tr><td><b>خیساندن</b> <span class="en">Maceration</span></td><td>گیاه (کامل یا پودر درشت) + حلال در ظرف دربسته، حداقل ۳ روز با هم‌زدن مکرر؛ سپس صاف‌کردن، فشردن تفاله (marc) و شفاف‌سازی با فیلتراسیون یا دکانتاسیون</td><td>اتاق</td><td>مناسب ترکیبات حساس به دما؛ پودر کردن و هم‌زدن بازده را بالا می‌برد؛ محدودیت: اشباع حلال</td></tr>
+      <tr><td><b>پرکولاسیون</b> <span class="en">Percolation</span></td><td>مشابه خیساندن، اما شیر پایین باز است و عصاره قطره‌قطره خارج می‌شود، همزمان حلال تازه از بالا اضافه می‌شود</td><td>≤ ۴۰–۵۰°C</td><td>چون حلال مداوم تازه می‌شود، <b>اشباع نداریم</b> و بازده بالاتر از خیساندن است؛ حاصل = <b>عصاره تام</b> (همه ترکیبات)</td></tr>
+      <tr><td><b>سوکسله</b> <span class="en">Soxhlet</span></td><td>حلال در بالن گرم و تبخیر می‌شود ← مبرد ← روی گیاه می‌چکد ← سیفون می‌شود؛ چرخه چندبار تکرار می‌شود</td><td>بالا</td><td>سریع، اما فقط برای ترکیبات <b>مقاوم به گرما</b> (مثل کافئین)</td></tr>
+      <tr><td><b>فراصوت</b> <span class="en">Ultrasonic</span></td><td>امواج صوتی با فرکانس بالا (سونیکاسیون) ترکیبات را آزاد می‌کنند؛ دستگاهی است و فرکانس و زمان قابل تنظیم‌اند</td><td>تنظیم‌پذیر</td><td>سریع‌تر از خیساندن و سوکسله؛ مثال: استخراج تارتاریک و مالیک اسید از دانه انگور (۲۴ kHz، ۳۰ دقیقه، ۷۰°C، آب یا متانول آبی)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>دم‌کرده و جوشانده (دو شکل خیساندن با گرما)</h3>
+  <div class="two">
+    <div class="card"><h4>دم‌کرده <span class="en">Infusion</span></h4><ul><li>ریختن آب جوش روی گیاه، چند دقیقه تا نیم‌ساعت</li><li>مناسب <b>برگ و گل</b> (مثل چای)</li></ul></div>
+    <div class="card"><h4>جوشانده <span class="en">Decoction</span></h4><ul><li>جوشاندن گیاه با آب، ۱۵ تا ۳۰ دقیقه</li><li>مناسب <b>ریشه، پوست، ساقه، میوه و دانه</b></li><li>ترکیبات حساس به دما در آن تخریب می‌شوند</li></ul></div>
+  </div>
+  <div class="key"><span class="kl">نکته</span>در روش گرم با مگنت و هیتر (بالای ۴۰°C) هم‌زدن و حرارت جایگزین هم‌دیگرند؛ این روش برای ترکیبات حساس به دما مناسب نیست. برای افزایش بازده بدون گرما: <b>پودرکردن</b> و <b>هم‌زدن</b>.</div>
+  <a class="back" href="#ext">↑ ابتدای بخش</a>
+</section>
+
+<section class="chapter s2" id="sep">
+  <div class="ch-head"><span class="ch-num">بخش ۲</span><h2>جداسازی فرآورده‌های طبیعی</h2></div>
+  <p class="sub">عصاره (مثلاً هگزانی) چندین مولکول دارد و باید با کروماتوگرافی جدا شود.</p>
+
+  <div class="two">
+    <div class="card"><h4>کلاسیک</h4><ul><li>TLC (لایه نازک)</li><li>PTLC (لایه نازک آماده‌سازی)</li><li>CC (ستونی باز)</li><li>FC (فلش)</li></ul></div>
+    <div class="card"><h4>مدرن</h4><ul><li>HPTLC، VLC</li><li>HPLC، MPLC</li><li>تکنیک‌های پیوندی: HPLC-PDA، LC-MS، LC-NMR، LC-MS-NMR</li></ul></div>
+  </div>
+
+  <h3>کروماتوگرافی ستونی <span class="en">(CC)</span></h3>
+  <p>اساس جداسازی: تفاوت تمایل ترکیبات به <b>فاز ساکن</b> و <b>فاز متحرک</b>. ترکیبی که بیشتر در فاز متحرک بماند، زودتر خارج می‌شود؛ ترکیبی که بیشتر به فاز ساکن بچسبد، دیرتر.</p>
+  <ul>
+    <li><b>فاز ساکن:</b> معمولاً سیلیکاژل، آلومینا یا C18</li>
+    <li><b>فاز متحرک:</b> حلال یا مخلوط حلالی</li>
+    <li><b>فاز نرمال:</b> ساکن قطبی (سیلیکاژل) و متحرک غیرقطبی؛ ترکیبات <b>غیرقطبی زودتر</b> خارج می‌شوند. شویش با هگزان شروع و با افزودن تدریجی اتیل‌استات قدرت شویش بیشتر می‌شود.</li>
+    <li>خروجی کار: <b>فرکشن‌ها</b> که هرکدام ممکن است ترکیب خالص یا مخلوطی از چند ترکیب باشند.</li>
+  </ul>
+  <div class="flow">
+    <div class="step">بسته‌بندی ستون</div><div class="arr">←</div>
+    <div class="step">تعادل‌دهی با فاز متحرک</div><div class="arr">←</div>
+    <div class="step">بارگذاری نمونه</div><div class="arr">←</div>
+    <div class="step">شویش</div><div class="arr">←</div>
+    <div class="step">جمع‌آوری فرکشن‌ها</div><div class="arr">←</div>
+    <div class="step">بررسی و ادغام فرکشن‌های مشابه</div>
+  </div>
+  <div class="key"><span class="kl">مشکل CC و راه‌حل</span>CC <b>وقت‌گیر</b> است. دو راه: ۱) <b>FC</b> با اعمال فشار بالا (کنترل‌شده تا ستون شیشه‌ای نشکند)؛ ۲) <b>VLC</b> با ایجاد خلأ از پایین (آن هم کنترل‌شده).</div>
+
+  <h3>HPLC</h3>
+  <p>ستون کوچک <b>فولادی</b> با ذرات بسیار ریز که فشار بالا را تحمل می‌کند؛ در نتیجه حتی ترکیبات با <b>قطبیت نزدیک</b> هم جدا می‌شوند. دو نوع ستون: <b>آنالیتیکال</b> (حجم در حد میکرولیتر) و <b>پریپریتیو</b> (حجم در حد میلی‌لیتر).</p>
+  <div class="flow">
+    <div class="step">فاز متحرک (مخزن)</div><div class="arr">←</div>
+    <div class="step">گاززدا + پمپ</div><div class="arr">←</div>
+    <div class="step">انژکتور</div><div class="arr">←</div>
+    <div class="step">ستون (در آون)</div><div class="arr">←</div>
+    <div class="step">دتکتور</div><div class="arr">←</div>
+    <div class="step">پردازش داده / کروماتوگرام</div>
+  </div>
+  <ul>
+    <li><b>t<sub>R</sub></b> (زمان بازداری): زمان خروج نمونه از ستون؛ به شناسایی احتمالی ترکیب کمک می‌کند. <b>مساحت پیک</b> برای اندازه‌گیری مقدار.</li>
+    <li>دتکتورها: UV، DAD، ELSD، MS، NMR.</li>
+    <li><b>بهینه‌بودن</b> یعنی پیک‌ها فاصله مناسب داشته و از هم قابل تشخیص باشند (مثال: نسبت آب/متانول ۶۰/۴۰ بهتر از ۸۰/۲۰).</li>
+  </ul>
+
+  <div class="tbl-wrap"><table>
+    <caption>فاز نرمال در برابر فاز معکوس</caption>
+    <thead><tr><th></th><th>فاز ثابت</th><th>فاز متحرک</th></tr></thead>
+    <tbody>
+      <tr><td><b>نرمال</b></td><td>قطبی، آب‌دوست</td><td>غیرقطبی، آب‌گریز</td></tr>
+      <tr><td><b>معکوس (HPLC)</b></td><td>غیرقطبی (ODS = C18)</td><td>قطبی: آب، متانول یا استونیتریل</td></tr>
+    </tbody>
+  </table></div>
+  <div class="key"><span class="kl">فاز معکوس — نکات کلیدی</span><ul>
+    <li>در ODS، زنجیره <b>C18</b> به سیلیکا متصل است؛ در صورت پاسخ‌ندادن C18، از C8 یا C4 استفاده می‌شود.</li>
+    <li>هرچه طول زنجیره کربنی بیشتر، برهم‌کنش غیرقطبی بیشتر.</li>
+    <li><b>مواد قطبی سریع‌تر خارج می‌شوند.</b> هرچه ترکیب غیرقطبی‌تر ← برهم‌کنش بیشتر ← دیرتر خارج می‌شود.</li>
+  </ul></div>
+
+  <h3>کروماتوگرافی گازی <span class="en">(GC)</span></h3>
+  <ul>
+    <li>معرفی‌شده توسط مارتین و جیمز (۱۹۵۲) برای جداسازی اسیدهای چرب.</li>
+    <li>مناسب ترکیبات <b>فرار با جرم مولکولی پایین</b> (مثل اسانس‌ها). ترکیب غیرفرار با جرم بالا باید ابتدا <b>مشتق‌سازی</b> شود.</li>
+    <li>فاز متحرک <b>گاز</b> (گاز حامل) است؛ ستون مویین پیچ‌خورده به طول چند متر داخل آون، با فاز مایع یا جامد.</li>
+    <li>دتکتور رایج: <b>MS</b> (GC-MS). هرچه ترکیب زودتر شناسایی شود، <b>فرارتر</b> است.</li>
+  </ul>
+
+  <h3>کروماتوگرافی لایه نازک <span class="en">(TLC)</span></h3>
+  <p>روش <b>کیفی</b> ساده و کارآمد؛ فاز ساکن قطبی (معمولاً سیلیکاژل) و فاز متحرک حلال داخل تانک. لکه‌ها با چشم دیده نمی‌شوند و دو راه آشکارسازی داریم:</p>
+  <ul>
+    <li><b>نور UV</b> در ۲۵۴ یا ۳۶۶ نانومتر: ترکیبات جذب‌کننده به‌صورت لکه تیره روی پس‌زمینه روشن دیده می‌شوند.</li>
+    <li><b>اسپری:</b> واکنش رنگی ترکیب با معرف افشانه‌ای.</li>
+  </ul>
+  <div class="tbl-wrap"><table>
+    <caption>معرف‌های اسپری مهم</caption>
+    <thead><tr><th>معرف</th><th>کاربرد / رنگ</th></tr></thead>
+    <tbody>
+      <tr><td>وانیلین / سولفوریک اسید</td><td>عمومی؛ بسیاری از ترپن‌ها رنگ قرمز و آبی می‌دهند (۱۰۰°C)</td></tr>
+      <tr><td>فسفومولیبدیک اسید (PMA)</td><td>ترپن‌ها: لکه آبی روی زمینه زرد</td></tr>
+      <tr><td>آمونیوم مولیبدات</td><td>عمومی؛ دی‌ترپن‌ها رنگ آبی</td></tr>
+      <tr><td>آنتیموان (III) کلرید</td><td>دی‌ و تری‌ترپن‌ها: قرمز تا آبی</td></tr>
+      <tr><td>قلع (IV) کلرید</td><td>فلاونوئیدها و ترپن‌ها</td></tr>
+      <tr><td><b>دراگندورف</b></td><td><b>آلکالوئیدها</b>: نارنجی تیره تا قرمز (روش سنتی)</td></tr>
+      <tr><td>۲،۴-دی‌نیتروفنیل‌هیدرازین</td><td>آلدهیدها و کتون‌ها: زرد تا قرمز</td></tr>
+      <tr><td>پرکلریک اسید</td><td>عمومی؛ مفید برای استروئیدها و تری‌ترپن‌ها</td></tr>
+      <tr><td>بورنتراگر (KOH اتانولی)</td><td>کومارین‌ها و آنتراکینون‌ها</td></tr>
+      <tr><td>نین‌هیدرین</td><td>آمینواسیدها، آمین‌ها و آلکالوئیدها (قرمز)</td></tr>
+    </tbody>
+  </table></div>
+  <a class="back" href="#sep">↑ ابتدای بخش</a>
+</section>
+
+<section class="chapter s3" id="idn">
+  <div class="ch-head"><span class="ch-num">بخش ۳</span><h2>شناسایی فرآورده‌های طبیعی <span class="en">(Identification)</span></h2></div>
+  <p class="sub">پس از جداسازی، ساختار ترکیب خالص با روش‌های طیف‌سنجی تعیین می‌شود.</p>
+
+  <div class="tbl-wrap"><table>
+    <caption>روش‌های شناسایی ساختار</caption>
+    <thead><tr><th>روش</th><th>اطلاعات حاصل</th></tr></thead>
+    <tbody>
+      <tr><td><b>IR</b></td><td>شناسایی <b>گروه‌های عاملی</b> (جذب‌های شاخص ارتعاشی)</td></tr>
+      <tr><td><b>NMR</b></td><td>روش خوب و پیچیده که حتی <b>اجزای ساختاری</b> را تشخیص می‌دهد؛ بر پایه اسپین هسته‌ای مغناطیسی ¹H، ¹³C، ¹⁵N</td></tr>
+      <tr><td><b>MS</b></td><td>وزن مولکولی و فرمول مولکولی؛ همچنین شناسایی اجزای ساختاری</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="tbl-wrap"><table>
+    <caption>جذب‌های شاخص IR</caption>
+    <thead><tr><th>عدد موج (cm⁻¹)</th><th>گروه / ارتعاش</th></tr></thead>
+    <tbody>
+      <tr><td>۳۷۰۰–۳۱۰۰</td><td>کشش O–H (گروه‌های فنولی)</td></tr>
+      <tr><td>۲۹۲۲ و ۲۸۵۲ تقریباً</td><td>کشش C–H در CH₂ و CH₃ اشباع</td></tr>
+      <tr><td>۱۶۴۰–۱۸۰۰</td><td>کشش C=O (کربونیل / کربوکسیل)</td></tr>
+      <tr><td>۱۴۷۰–۱۵۹۰</td><td>کشش حلقه C=C آروماتیک</td></tr>
+      <tr><td>۱۴۶۰ و ۱۳۷۶</td><td>تغییر شکل C–H (CH₂ و CH₃)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>NMR</h3>
+  <ul>
+    <li><b>یک‌بعدی (1D):</b> ¹H-NMR و ¹³C-NMR</li>
+    <li><b>دوبعدی (2D):</b> H-H COSY، HSQC و HMBC</li>
+  </ul>
+
+  <h3>طیف‌سنجی جرمی <span class="en">(MS)</span></h3>
+  <div class="flow">
+    <div class="step">ورود نمونه</div><div class="arr">←</div>
+    <div class="step">یونیزاسیون</div><div class="arr">←</div>
+    <div class="step">جداسازی بر اساس m/z (بار و جرم)</div><div class="arr">←</div>
+    <div class="step">آشکارسازی یون‌ها</div>
+  </div>
+  <div class="key"><span class="kl">جمع‌بندی سه‌گانه</span>IR ← گروه‌های عاملی &nbsp;|&nbsp; NMR ← اجزای ساختاری و اسکلت &nbsp;|&nbsp; MS ← وزن و فرمول مولکولی</div>
+  <a class="back" href="#idn">↑ ابتدای بخش</a>
+</section>
+
+</main>
+
+<footer>
+  خلاصه‌ای برای مرور سریع پیش از آزمون — بر اساس جزوه جلسه دوم فارماکوگنوزی ۱
+  <span class="sign">By A.H.Ebrahimnaz</span>
+</footer>
+</body>
+</html>
