@@ -81,7 +81,21 @@ def main():
             continue
 
         subject_folder = parts[0]
-        subject = display_name(subject_folder)
+
+        if subject_folder == "pharmaceutics2" and len(parts) >= 3:
+            teacher_folder = parts[1]
+            teacher_names = {
+                "dr-ebrahimi": "دکتر ابراهیمی",
+                "dr-heydari": "دکتر حیدری",
+            }
+            subject = display_name(subject_folder) + " — " + teacher_names.get(
+                teacher_folder, teacher_folder
+            )
+        else:
+            subject = display_name(subject_folder)
+
+                subject_folder = parts[0]
+                subject = display_name(subject_folder)
 
         try:
             source = file_path.read_text(encoding="utf-8-sig")
