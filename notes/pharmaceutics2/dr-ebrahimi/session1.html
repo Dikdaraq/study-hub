@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>خلاصه پیش‌فرموالسیون | فارماسیوتیکس نظری</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--ink:#0a1a44;--navy:#0a2a6b;--blue:#1d4ed8;--line:#1d4ed8;--soft:#eaf1ff;--onnavy:#ffffff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071436;--ink:#eef3ff;--navy:#1d4ed8;--blue:#7fb0ff;--line:#3b6fe0;--soft:#0d2150}}
+:root[data-theme="dark"]{--bg:#071436;--ink:#eef3ff;--navy:#1d4ed8;--blue:#7fb0ff;--line:#3b6fe0;--soft:#0d2150}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Vazirmatn',Tahoma,sans-serif;line-height:2}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header.top{background:var(--navy);color:#fff;padding:40px 18px 30px;border-bottom:6px solid var(--blue)}
+.kicker{font-size:14px;font-weight:700;margin-bottom:6px}
+h1{font-size:clamp(21px,4vw,30px);font-weight:800;margin:0 0 10px;line-height:1.6}
+.desc{font-size:14.5px;margin:0;max-width:680px}
+nav.toc{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:2px solid var(--line);padding:10px 18px}
+.toc-inner{max-width:900px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap}
+.toc-inner a{text-decoration:none;font-size:12.5px;font-weight:700;color:var(--blue);border:2px solid var(--line);padding:3px 12px;border-radius:999px;white-space:nowrap}
+.toc-inner a:hover{background:var(--blue);color:#fff}
+section{padding:34px 0 8px;border-bottom:2px solid var(--line)}
+h2{font-size:clamp(18px,3vw,22px);font-weight:800;margin:0 0 12px;display:flex;align-items:center;gap:10px;color:var(--blue)}
+h2 .num{background:var(--navy);color:#fff;border-radius:8px;min-width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+p{margin:0 0 12px;font-size:15px}
+ul,ol{margin:0 0 14px;padding-inline-start:22px;font-size:15px}
+li{margin-bottom:5px}
+b{color:var(--blue);font-weight:700}
+.en{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:600}
+.keybox{border:2px solid var(--line);border-inline-start:8px solid var(--blue);border-radius:8px;padding:12px 16px;margin:14px 0 20px;font-size:14.5px}
+.keybox .klabel{display:block;font-weight:800;color:var(--blue);font-size:13px;margin-bottom:4px}
+.keybox ul,.keybox ol{margin-bottom:0}
+table{width:100%;border-collapse:collapse;margin:12px 0 22px;font-size:13.5px;border:2px solid var(--line)}
+caption{text-align:right;font-weight:800;color:var(--blue);padding:6px 2px;font-size:13px}
+th{background:var(--navy);color:#fff;font-weight:700}
+th,td{padding:7px 11px;border:1px solid var(--line);text-align:right;vertical-align:top}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0 20px;font-size:13px}
+.step{border:2px solid var(--line);border-radius:8px;padding:5px 12px;font-weight:700;text-align:center}
+.step.hl{background:var(--navy);color:#fff}
+.arrow{color:var(--blue);font-weight:800}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 20px}
+.card{border:2px solid var(--line);border-radius:8px;padding:12px 16px}
+.card h4{margin:0 0 6px;color:var(--blue);font-size:14.5px}
+.card ul{margin:0;font-size:13.5px}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+.struct{display:flex;gap:18px;align-items:center;flex-wrap:wrap;border:2px solid var(--line);border-radius:8px;padding:10px 16px;margin:12px 0 20px}
+.struct svg{width:270px;max-width:100%;height:auto;flex:0 0 auto}
+.struct svg *{stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+.struct svg text{fill:var(--ink);stroke:none;font:700 15px Arial,sans-serif}
+.struct p{font-size:13.5px;margin:0;flex:1 1 200px}
+footer{max-width:900px;margin:0 auto;padding:26px 18px 40px;text-align:center;font-weight:700;font-size:14px;color:var(--blue)}
+footer .by{direction:ltr;font-size:16px;margin-top:4px;color:var(--ink);font-weight:800}
+@media print{:root{--bg:#fff;--ink:#000;--navy:#0a2a6b;--blue:#0a2a6b;--line:#0a2a6b}nav.toc{position:static}th{-webkit-print-color-adjust:exact;print-color-adjust:exact}.step.hl,h2 .num{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="kicker">خلاصه جمع‌بندی پیش از آزمون — فارماسیوتیکس نظری</div>
+  <h1>مطالعات پیش‌فرموالسیون (Preformulation Studies)</h1>
+  <p class="desc">خلاصه‌ای فشرده از جلسه ۱ (دکتر ابراهیمی): اهداف، حوزه‌های اصلی، آزمون‌های تعیین هر خاصیت، بلورینگی و پلی‌مورفیسم.</p>
+</div></header>
+
+<nav class="toc"><div class="toc-inner">
+  <a href="#s1">۱. مفهوم و اهداف</a><a href="#s2">۲. حوزه‌ها</a><a href="#s3">۳. آزمون‌ها</a><a href="#s4">۴. بلورینگی</a><a href="#s5">۵. پلی‌مورفیسم</a><a href="#s6">۶. نکات امتحانی</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="s1">
+  <h2><span class="num">۱</span>مفهوم و اهداف پیش‌فرموالسیون</h2>
+  <p>پیش‌فرموالسیون فازی از <b>تحقیق و توسعه (D&amp;R)</b> است که در آن ویژگی‌های فیزیکی و شیمیایی مولکول دارویی تعیین می‌شود تا یک <b>شکل دوزی مناسب، مؤثر و پایدار</b> طراحی شود. نتیجه نهایی: مشخصه‌یابی فیزیکوشیمیایی ← <b>دستور ساخت (فرموالسیون)</b> فراورده.</p>
+  <div class="flow">
+    <span class="step">پیش‌فرموالسیون</span><span class="arrow">←</span><span class="step">مشخصه‌یابی فیزیکوشیمیایی</span><span class="arrow">←</span><span class="step hl">دستور ساخت فراورده</span>
+  </div>
+  <div class="keybox"><span class="klabel">چرا داروی کاملاً جدید کمتر ساخته می‌شود؟</span>به‌دلیل <b>هزینه بالا</b> (طراحی و توسعه یک مولکول جدید بسیار پرهزینه است).</div>
+  <p><b>اهداف:</b></p>
+  <ol>
+    <li>تعیین پارامترهای فیزیکوشیمیایی ماده دارویی جدید</li>
+    <li>تعیین جذب‌شناسی و پایداری آن</li>
+    <li>تعیین سازگاری با مواد کمکی رایج (excipients)</li>
+    <li>ارائه بینش درباره نحوه پردازش و نگهداری فراورده برای تضمین کیفیت</li>
+  </ol>
+</section>
+
+<section id="s2">
+  <h2><span class="num">۲</span>حوزه‌های اصلی تحقیقات پیش‌فرموالسیون</h2>
+  <table>
+    <caption>پنج حوزه اصلی</caption>
+    <thead><tr><th>حوزه</th><th>موارد بررسی‌شده</th></tr></thead>
+    <tbody>
+      <tr><td><b>۱. ارگانولپتیک</b></td><td>ظاهر و رنگ (براق، قهوه‌ای روشن، کرم‌زرد، سفید‌مات) و خواص حسی: رنگ، مزه، بو</td></tr>
+      <tr><td><b>۲. ویژگی‌های توده‌ای (Bulk)</b></td><td>بلورینگی و پلی‌مورفیسم (شکل و بافت ماده) • رطوبت‌پذیری (Hygroscopicity) • مشخصه‌یابی ذرات ریز • جریان‌پذیری پودر</td></tr>
+      <tr><td><b>۳. ویژگی‌های ذاتی</b></td><td>ویژگی‌های ذاتی دارو و ذرات آن</td></tr>
+      <tr><td><b>۴. آنالیز حلالیت</b></td><td>ثابت یونش pKa • حلالیت برحسب pH • اثر یون مشترک • افزایش حلالیت (Solubilization) • انحلال (Dissolution) • ضریب تقسیم (Partition coefficient)</td></tr>
+      <tr><td><b>۵. آنالیز پایداری</b></td><td>پایداری در فرموالسیون سم‌شناسی • پایداری محلول • پروفایل سرعت برحسب pH • پایداری حالت جامد • پایداری توده‌ای • سازگاری (Compatibility)</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="s3">
+  <h2><span class="num">۳</span>آزمون‌های مورد استفاده</h2>
+  <table>
+    <caption>اختصارات روش‌های دستگاهی</caption>
+    <thead><tr><th>روش</th><th>نام فارسی</th><th>کاربرد کلیدی</th></tr></thead>
+    <tbody>
+      <tr><td><span class="en">TLC</span></td><td>کروماتوگرافی لایه نازک</td><td>ضریب تقسیم، بررسی خلوص</td></tr>
+      <tr><td><span class="en">UV</span></td><td>طیف‌سنجی فرابنفش</td><td>حلالیت، pKa، ضریب تقسیم (نیازمند کروموفور)</td></tr>
+      <tr><td><span class="en">DVS</span></td><td>جذب بخار پویا</td><td>جذب رطوبت (هیگروسکوپی)</td></tr>
+      <tr><td><span class="en">HPLC</span></td><td>کروماتوگرافی مایع با کارایی بالا</td><td>پایداری، ضریب تقسیم، سازگاری با مواد جانبی</td></tr>
+      <tr><td><span class="en">DSC</span></td><td>گرماسنجی روبشی تفاضلی</td><td>نقطه ذوب، آنتالپی ذوب، پلی‌مورف، سازگاری</td></tr>
+      <tr><td><span class="en">TGA</span></td><td>آنالیز وزن‌سنجی حرارتی</td><td>جذب رطوبت / حلال</td></tr>
+      <tr><td><span class="en">BET</span></td><td>برونائر-امت-تلر</td><td>تعیین سطح ویژه</td></tr>
+      <tr><td><span class="en">XRPD</span></td><td>پراش پرتو ایکس پودری</td><td>تشخیص شکل‌های بلوری (پلی‌مورف / آمورف)</td></tr>
+    </tbody>
+  </table>
+  <table>
+    <caption>هر خاصیت با چه روشی تعیین می‌شود؟</caption>
+    <thead><tr><th>خاصیت</th><th>روش / نیاز نمونه</th></tr></thead>
+    <tbody>
+      <tr><td>حلالیت (آبی / غیرآبی)</td><td>UV — نیازمند کروموفور</td></tr>
+      <tr><td>pKa</td><td>UV، تیتراسیون پتانسیومتری یا روش‌های دیگر — نیازمند گروه اسیدی یا بازی</td></tr>
+      <tr><td>ضریب تقسیم (log P)</td><td>UV، TLC، HPLC — نیازمند کروموفور</td></tr>
+      <tr><td>جذب رطوبت (هیگروسکوپی)</td><td>DVS، TGA</td></tr>
+      <tr><td>پایداری (هیدرولیز، فوتولیز، اکسیداسیون و...) و شرایط نگهداری</td><td>HPLC</td></tr>
+      <tr><td>نقطه ذوب</td><td>DSC یا دستگاه تعیین نقطه ذوب</td></tr>
+      <tr><td>آنتالپی ذوب (حلالیت ایده‌آل)</td><td>DSC</td></tr>
+      <tr><td>شکل‌های فیزیکی (پلی‌مورف، آمورف)</td><td>XRPD، DSC، میکروسکوپی</td></tr>
+      <tr><td>شکل و اندازه ذره، توزیع اندازه، مورفولوژی، زبری سطح (Rugosity)، عادت بلور (habit)</td><td>میکروسکوپی، تعیین اندازه ذره، BET (سطح ویژه)</td></tr>
+      <tr><td>چگالی</td><td>چگالی‌سنجی کوبشی (tapped density)</td></tr>
+      <tr><td>جریان‌پذیری</td><td>زاویه ریزش (زاویه استراحت)</td></tr>
+      <tr><td>تراکم‌پذیری</td><td>شاخص کار (Carr) و نسبت هاوسنر</td></tr>
+      <tr><td>سازگاری با مواد جانبی</td><td>HPLC و DSC</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="s4">
+  <h2><span class="num">۴</span>ویژگی‌های توده‌ای: بلورینگی (Crystallinity)</h2>
+  <p>عادت بلوری و ساختار داخلی دارو بر خواص توده‌ای و فیزیکوشیمیایی آن اثر می‌گذارند.</p>
+  <div class="two">
+    <div class="card"><h4>عادت بلوری (Habit)</h4><ul><li>توصیف <b>ظاهر بیرونی</b> بلور</li></ul></div>
+    <div class="card"><h4>ساختار داخلی</h4><ul><li><b>آرایش مولکولی</b> درون جامد</li></ul></div>
+  </div>
+  <p>تغییر ساختار داخلی معمولاً عادت بلوری را هم تغییر می‌دهد. مثال: تبدیل <b>نمک سدیمی</b> به <b>شکل اسید آزاد</b> هر دو را عوض می‌کند.</p>
+  <div class="two">
+    <div class="card"><h4>بلورین (Crystalline)</h4><ul><li>آرایش <b>منظم و تکراری</b> اتم‌ها یا مولکول‌ها</li></ul></div>
+    <div class="card"><h4>آمورف (Amorphous)</h4><ul><li>آرایش <b>تصادفی</b> اتم‌ها/مولکول‌ها</li><li>ایجاد با: رسوب‌گیری سریع، آسیاب کردن</li></ul></div>
+  </div>
+  <div class="keybox"><span class="klabel">نکته کلیدی</span>آمورف ← <b>انرژی ترمودینامیکی بالا</b> ← <b>حلالیت و سرعت انحلال بیشتر</b>. مثال: <b>نووبیوسین</b> آمورف جذب خوبی دارد ولی شکل بلوری آن جذب نمی‌شود.</div>
+</section>
+
+<section id="s5">
+  <h2><span class="num">۵</span>پلی‌مورفیسم (Polymorphism)</h2>
+  <p><b>تعریف:</b> توانایی یک ترکیب برای متبلور شدن به بیش از یک شکل بلوری متمایز با شبکه داخلی متفاوت؛ هر شکل یک <b>پلی‌مورف</b> است.</p>
+  <ul>
+    <li><b>پلی‌مورف پایدار:</b> بالاترین دمای ذوب و کمترین حجم را دارد؛ بقیه اشکال نیمه‌پایدار یا <b>متاپایدار</b> هستند.</li>
+    <li>شکل پایدار ممکن است <b>بدترین فرایندپذیری</b> را داشته باشد.</li>
+  </ul>
+  <div class="struct">
+    <svg viewBox="0 0 260 120" role="img" aria-label="ساختار شیمیایی پاراستامول">
+      <polygon points="70,70 85,44 115,44 130,70 115,96 85,96"/>
+      <line x1="76.6" y1="68.6" x2="87" y2="50.4"/><line x1="113" y1="50.4" x2="123.4" y2="68.6"/><line x1="91" y1="90.5" x2="109" y2="90.5"/>
+      <line x1="70" y1="70" x2="50" y2="70"/><text x="32" y="75" text-anchor="middle">HO</text>
+      <line x1="130" y1="70" x2="148" y2="70"/><text x="161" y="75" text-anchor="middle">NH</text>
+      <line x1="174" y1="66" x2="192" y2="56"/>
+      <line x1="192" y1="56" x2="192" y2="34"/><line x1="197" y1="56" x2="197" y2="34"/><text x="194" y="26" text-anchor="middle">O</text>
+      <line x1="192" y1="56" x2="212" y2="68"/><text x="228" y="76" text-anchor="middle">CH₃</text>
+    </svg>
+    <p><b>پاراستامول (استامینوفن)</b> — مثال فرایندپذیری: <b>شکل پایدار</b> ← تراکم‌پذیری ضعیف؛ <b>شکل ناپایدار (متاپایدار)</b> ← تراکم‌پذیری خوب.</p>
+  </div>
+  <table>
+    <caption>انواع پلی‌مورف</caption>
+    <thead><tr><th>نوع</th><th>تعریف</th><th>مثال</th></tr></thead>
+    <tbody>
+      <tr><td><b>انانتیوتروپیک</b></td><td>با تغییر دما یا فشار، تبدیل برگشت‌پذیر از یک شکل به شکل دیگر ممکن است</td><td>گوگرد</td></tr>
+      <tr><td><b>مونوتروپیک</b></td><td>در همه دماها و فشارها ناپایدار است (تبدیل برگشت‌پذیر ندارد)</td><td>گلیسریل استئارات</td></tr>
+    </tbody>
+  </table>
+  <p>پلی‌مورف‌ها <b>خواص فیزیکی متفاوت</b> دارند: حلالیت، نقطه ذوب، چگالی، سختی و...</p>
+  <div class="keybox"><span class="klabel">مثال: کلرامفنیکل (پالمیتات)</span>در سه شکل <b>A، B و C</b> وجود دارد؛ طبق جزوه شکل <b>B</b> پایدارتر و ترجیح داده‌شده است.<br>توجه: در منابع مرجع شکل B معمولاً «متاپایدار ولی دارای زیست‌دسترسی بهتر» ذکر می‌شود؛ برای امتحان همان عبارت جزوه استاد را بنویسید.</div>
+</section>
+
+<section id="s6">
+  <h2><span class="num">۶</span>نکات امتحانی سریع</h2>
+  <div class="keybox"><span class="klabel">به‌خاطر بسپار</span>
+    <ul>
+      <li>پیش‌فرموالسیون در بخش <b>D&amp;R</b> انجام می‌شود؛ خروجی آن دستور ساخت فراورده است.</li>
+      <li>چهار هدف: پارامترهای فیزیکوشیمیایی، جذب و پایداری، سازگاری با excipient، پردازش و نگهداری.</li>
+      <li>پنج حوزه: ارگانولپتیک، توده‌ای، ذاتی، حلالیت، پایداری.</li>
+      <li>pKa ← گروه اسیدی/بازی لازم است؛ حلالیت و log P ← کروموفور لازم است.</li>
+      <li>رطوبت: DVS و TGA — پایداری: HPLC — ذوب و آنتالپی: DSC — پلی‌مورف: XRPD + DSC + میکروسکوپ.</li>
+      <li>آمورف: انرژی بالا، حلالیت بالا، (نووبیوسین).</li>
+      <li>پلی‌مورف پایدار: بالاترین ذوب ولی ممکن است فرایندپذیری بد داشته باشد (پاراستامول).</li>
+      <li>انانتیوتروپیک (گوگرد) در برابر مونوتروپیک (گلیسریل استئارات).</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>موفق باشید — خلاصه برای مرور پیش از آزمون
+  <div class="by">By Amirmasoud Vatanpour &amp; A.H.Ebrahimnaz</div>
+</footer>
+</body>
+</html>
