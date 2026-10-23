@@ -237,7 +237,11 @@
     filtered.forEach((item, i) => {
       const card = document.createElement("a");
       card.className = "lesson";
-      card.href = item.path;
+
+      const lessonPath = String(item.path || "")
+        .replace(/^\.?\//, "");
+
+      card.href = "../../" + lessonPath;
       card.style.animationDelay = `${Math.min(i * 35, 350)}ms`;
 
       const icon = document.createElement("div");
