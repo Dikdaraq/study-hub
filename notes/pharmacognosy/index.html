@@ -1,140 +1,284 @@
 
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101827">
-  <title>فارماکوگنوزی | مرکز دانش من</title>
+  <meta name="theme-color" content="#0b1020">
+  <title>Pharmacognosy | Study Hub</title>
   <style>
     :root {
       color-scheme: dark;
-      --bg: #101827;
-      --panel: #1b2638;
-      --text: #edf2fa;
-      --muted: #9baac0;
-      --accent: #83aaff;
-      --border: #2d3a50;
+      --bg: #080d1a;
+      --panel: rgba(19, 27, 48, .78);
+      --line: rgba(255,255,255,.1);
+      --text: #f3f5ff;
+      --muted: #a5aec7;
+      --accent: #a78bfa;
+      --accent2: #67e8f9;
     }
-
     * { box-sizing: border-box; }
-
     body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Tahoma, Arial, sans-serif;
-      line-height: 1.9;
+      margin: 0; min-height: 100vh; color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(ellipse at 15% 5%, rgba(124,58,237,.22), transparent 35%),
+        radial-gradient(ellipse at 90% 25%, rgba(6,182,212,.13), transparent 30%),
+        var(--bg);
     }
-
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1000px, calc(100% - 36px)); margin: auto; }
     header {
-      padding: 32px 24px;
-      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 26px 0;
     }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 28px 24px 60px;
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .logo {
+      display: grid; place-items: center; width: 42px; height: 42px;
+      border-radius: 14px; color: #0b1020;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 8px 30px rgba(167,139,250,.22);
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    .brand small {
+      display: block; color: var(--muted); font-size: 10px;
+      letter-spacing: 2px; margin-top: 3px;
     }
-
-    a:hover { text-decoration: underline; }
-
-    .back { font-size: .95rem; }
-
+    .back {
+      color: var(--muted); border: 1px solid var(--line);
+      padding: 10px 14px; border-radius: 12px; transition: .2s;
+    }
+    .back:hover { color: white; border-color: var(--accent); transform: translateY(-2px); }
+    .hero { padding: 65px 0 34px; animation: rise .65s ease both; }
     .eyebrow {
-      color: var(--accent);
-      font-size: .8rem;
-      letter-spacing: .05em;
+      color: var(--accent2); font-size: 12px; font-weight: 800;
+      letter-spacing: 3px; text-transform: uppercase;
     }
-
-    h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
-    h2 { font-size: 1.2rem; }
-
-    .muted { color: var(--muted); }
-
+    h1 { font-size: clamp(38px, 7vw, 68px); letter-spacing: -2px; margin: 14px 0; }
+    .description { color: var(--muted); line-height: 1.8; max-width: 650px; }
+    .search {
+      display: flex; gap: 12px; align-items: center; margin: 28px 0 12px;
+      padding: 8px 10px 8px 18px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.045); border-radius: 17px;
+      transition: .25s;
+    }
+    .search:focus-within {
+      border-color: var(--accent); box-shadow: 0 0 0 4px rgba(167,139,250,.1);
+    }
+    .search span { color: var(--accent2); font-size: 20px; }
+    input {
+      width: 100%; min-width: 0; border: 0; outline: 0; color: var(--text);
+      background: transparent; padding: 12px 0; font: inherit;
+    }
+    input::placeholder { color: #7e89a5; }
+    .count { color: var(--muted); font-size: 13px; margin: 18px 0; }
+    .lessons {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 16px; padding: 12px 0 65px;
+    }
     .lesson {
-      display: block;
-      margin-top: 16px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--panel);
-      color: var(--text);
-      transition: border-color .2s;
+      display: block; min-height: 160px; padding: 23px;
+      border: 1px solid var(--line); border-radius: 20px;
+      background: var(--panel); backdrop-filter: blur(14px);
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      animation: rise .45s ease both;
     }
-
     .lesson:hover {
-      border-color: var(--accent);
-      text-decoration: none;
+      transform: translateY(-6px); border-color: rgba(167,139,250,.65);
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
     }
-
-    .lesson-title { font-weight: bold; }
-
-    .lesson-description {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: .92rem;
+    .lesson-icon { font-size: 24px; margin-bottom: 18px; }
+    .lesson h2 { font-size: 18px; line-height: 1.5; margin: 0 0 10px; }
+    .lesson p { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0; }
+    mark { background: rgba(250,204,21,.28); color: #fde68a; border-radius: 3px; }
+    .empty {
+      display: none; padding: 30px 20px; text-align: center; color: var(--muted);
+      border: 1px dashed var(--line); border-radius: 18px;
     }
-
-    .arrow {
-      display: inline-block;
-      margin-right: 6px;
-    }
-
     footer {
-      padding: 24px;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      font-size: .85rem;
+      border-top: 1px solid var(--line); padding: 24px 0 32px;
+      color: var(--muted); font-size: 12px; display: flex;
+      justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .credit { color: var(--accent2); }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 560px) {
+      header { padding: 18px 0; }
+      .hero { padding-top: 44px; }
+      h1 { letter-spacing: -1px; }
+      .lessons { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important; transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="eyebrow">مرکز دانش شخصی</div>
-    <h1>🌿 فارماکوگنوزی</h1>
-    <p class="muted">مجموعه جزوه‌ها و درس‌های فارماکوگنوزی</p>
-  </header>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="../../index.html">
+        <span class="logo">S</span>
+        <span>Study Hub<small>OPEN LEARNING LIBRARY</small></span>
+      </a>
+      <a class="back" href="../../index.html">← All subjects</a>
+    </header>
 
-  <main>
-    <a class="back" href="../../index.html">بازگشت به صفحه اصلی ←</a>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">SUBJECT LIBRARY / 01</div>
+        <h1>Pharmacognosy<span style="color:var(--accent)">.</span></h1>
+        <p class="description">
+          Browse your Pharmacognosy lessons, or search within lesson titles and content.
+        </p>
+        <label class="search">
+          <span>⌕</span>
+          <input id="search" type="search" placeholder="Search lessons and their content…" autocomplete="off">
+        </label>
+        <p class="count" id="count" aria-live="polite">Loading lessons…</p>
+      </section>
 
-    <h2>فهرست درس‌ها</h2>
-    <p class="muted">برای مطالعه، یکی از درس‌های زیر را انتخاب کن.</p>
+      <section class="lessons" id="lessons" aria-label="Pharmacognosy lessons"></section>
+      <div class="empty" id="empty">No matching lessons found.</div>
+    </main>
 
-    <a class="lesson" href="./session1.html">
-      <div class="lesson-title">
-        جلسه اول فارماکوگنوزی
-        <span class="arrow">←</span>
-      </div>
-      <p class="lesson-description">
-        مشاهده جزوه اصلی جلسه اول
-      </p>
-    </a>
+    <footer>
+      <span>Pharmacognosy · Learning resources</span>
+      <a class="credit" href="https://github.com/Dikdaraq" target="_blank" rel="noopener noreferrer">Designed by Ali Mohammadi Dikdaraq</a>
+    </footer>
+  </div>
 
-    
-    <a class="lesson" href="./session2.html">
-      <div class="lesson-title">
-        جلسه دوم فارماکوگنوزی
-        <span class="arrow">←</span>
-      </div>
-      <p class="lesson-description">
-        مشاهده جزوه اصلی جلسه دوم
-      </p>
-    </a>
+  <script>
+    const FOLDER = "notes/pharmacognosy/";
+    const INDEX_URL = "../../search-index.json";
+    const input = document.getElementById("search");
+    const grid = document.getElementById("lessons");
+    const count = document.getElementById("count");
+    const empty = document.getElementById("empty");
+    let lessons = [];
 
-  </main>
+    function normalize(value) {
+      return String(value || "")
+        .normalize("NFKC")
+        .replace(/[يى]/g, "ی")
+        .replace(/ك/g, "ک")
+        .replace(/[أإٱآ]/g, "ا")
+        .replace(/ة/g, "ه")
+        .replace(/ؤ/g, "و")
+        .replace(/ئ/g, "ی")
+        .replace(/ـ/g, "")
+        .replace(/[\u064B-\u065F\u0670]/g, "")
+        .toLowerCase()
+        .trim();
+    }
 
-  <footer>
-    مرکز دانش من · مجموعه شخصی یادداشت‌های آموزشی
-  </footer>
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, ch => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[ch]);
+    }
+
+    function highlight(text, query) {
+      const safe = escapeHTML(text || "");
+      if (!query.trim()) return safe;
+      const terms = normalize(query).split(/\s+/).filter(Boolean);
+      if (!terms.length) return safe;
+      const pattern = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+      const original = String(text || "");
+      const re = new RegExp(pattern, "ig");
+      // Highlight against normalized text only when character positions remain compatible.
+      // Persian character variants are normalized for searching; display remains safe.
+      const normalizedOriginal = normalize(original);
+      const normalizedQuery = normalize(query).split(/\s+/).filter(Boolean);
+      let result = safe;
+      for (const term of normalizedQuery) {
+        const idx = normalizedOriginal.indexOf(term);
+        if (idx >= 0 && idx < original.length) {
+          const before = escapeHTML(original.slice(0, idx));
+          const match = escapeHTML(original.slice(idx, idx + term.length));
+          const after = escapeHTML(original.slice(idx + term.length));
+          result = before + "<mark>" + match + "</mark>" + after;
+          break;
+        }
+      }
+      return result;
+    }
+
+    function excerpt(text, query) {
+      const source = String(text || "").replace(/\s+/g, " ").trim();
+      if (!source) return "Open this lesson to view its content.";
+      const haystack = normalize(source);
+      const needle = normalize(query);
+      const words = needle.split(/\s+/).filter(Boolean);
+      let pos = -1;
+      for (const word of words) {
+        pos = haystack.indexOf(word);
+        if (pos >= 0) break;
+      }
+      if (pos < 0) return source.slice(0, 150) + (source.length > 150 ? "…" : "");
+      const start = Math.max(0, pos - 55);
+      const end = Math.min(source.length, pos + 110);
+      return (start ? "…" : "") + source.slice(start, end) + (end < source.length ? "…" : "");
+    }
+
+    function render() {
+      const query = input.value;
+      const q = normalize(query);
+      const filtered = lessons.filter(item => {
+        const searchable = normalize([
+          item.title, item.subject, item.filename, item.text, item.path
+        ].join(" "));
+        return !q || q.split(/\s+/).filter(Boolean).every(term => searchable.includes(term));
+      });
+
+      grid.innerHTML = "";
+      empty.style.display = filtered.length ? "none" : "block";
+      count.textContent = `${filtered.length} lesson${filtered.length === 1 ? "" : "s"}${q ? " found" : " available"}`;
+
+      filtered.forEach((item, i) => {
+        const card = document.createElement("a");
+        card.className = "lesson";
+        card.href = item.path;
+        card.style.animationDelay = `${Math.min(i * 35, 350)}ms`;
+
+        const title = item.title || item.filename || "Untitled lesson";
+        const snippet = excerpt(item.text || "", query);
+        card.innerHTML = `
+          <div class="lesson-icon">📘</div>
+          <h2>${highlight(title, query)}</h2>
+          <p>${highlight(snippet, query)}</p>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    async function init() {
+      try {
+        const response = await fetch(INDEX_URL, { cache: "no-store" });
+        if (!response.ok) throw new Error("Search index unavailable");
+        const data = await response.json();
+        lessons = data.filter(item =>
+          String(item.path || "").replace(/^\.?\//, "").startsWith(FOLDER)
+        );
+        lessons.sort((a, b) =>
+          String(a.title || a.filename || "").localeCompare(
+            String(b.title || b.filename || ""), undefined, { sensitivity: "base" }
+          )
+        );
+        render();
+      } catch (error) {
+        count.textContent = "Could not load lessons. Please try again after the site has deployed.";
+        empty.textContent = "The lesson index could not be loaded. Check that search-index.json is available at the site root.";
+        empty.style.display = "block";
+      }
+    }
+
+    input.addEventListener("input", render);
+    init();
+  </script>
 </body>
 </html>
