@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>خلاصه فارماسیوتیکس نظری – جلسه ۲</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A2358;
+  --blue:#0F4CBA;
+  --sky:#1E73E8;
+  --ink:#0A1A3A;
+  --white:#FFFFFF;
+  --tint:#EAF2FF;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;font-family:"Vazirmatn",Tahoma,"Segoe UI",sans-serif;background:var(--white);color:var(--ink);line-height:2;font-size:16px}
+header.hero{background:var(--navy);color:var(--white);padding:56px 20px 44px;text-align:center;border-bottom:8px solid var(--sky)}
+header.hero h1{margin:0 0 8px;font-size:2rem;font-weight:800}
+header.hero p{margin:0;font-size:1.05rem;font-weight:400}
+nav{position:sticky;top:0;z-index:20;background:var(--blue);display:flex;gap:4px;overflow-x:auto;padding:8px 12px;border-bottom:3px solid var(--navy)}
+nav a{color:var(--white);text-decoration:none;white-space:nowrap;padding:4px 14px;border-radius:999px;font-size:.92rem;font-weight:600}
+nav a:hover,nav a:focus-visible{background:var(--white);color:var(--navy);outline:none}
+main{max-width:860px;margin:0 auto;padding:28px 18px 10px}
+section{margin-bottom:34px;border:2px solid var(--blue);border-radius:14px;overflow:hidden;background:var(--white)}
+section>h2{margin:0;background:var(--blue);color:var(--white);padding:8px 20px;font-size:1.2rem;font-weight:800}
+section .body{padding:14px 22px 18px}
+h3{color:var(--navy);margin:16px 0 2px;font-size:1.05rem;border-right:5px solid var(--sky);padding-right:10px}
+ul{margin:6px 0;padding-right:22px}
+li{margin:2px 0}
+li::marker{color:var(--blue)}
+b,strong{color:var(--navy);font-weight:800}
+.en{direction:ltr;unicode-bidi:isolate;font-weight:600;color:var(--navy)}
+.pill{display:inline-block;padding:0 10px;border-radius:999px;font-size:.88rem;font-weight:600;color:var(--white)}
+.pill.good{background:var(--blue)}
+.pill.bad{background:var(--navy)}
+.note{border:2px solid var(--navy);border-right-width:8px;border-radius:10px;padding:8px 14px;margin:12px 0;background:var(--tint)}
+.note b{display:block;margin-bottom:0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.95rem}
+th{background:var(--navy);color:var(--white);padding:6px 10px;font-weight:600}
+td{border:1.5px solid var(--blue);padding:5px 10px;text-align:center}
+tbody tr:nth-child(even) td{background:var(--tint)}
+.formula{direction:ltr;text-align:center;font-size:1.15rem;font-weight:600;color:var(--navy);border:2px solid var(--blue);border-radius:10px;padding:6px 12px;margin:10px 0;background:var(--white)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{border:2px solid var(--blue);border-radius:10px;padding:8px 14px}
+.card h4{margin:0;color:var(--navy);font-size:1rem}
+.card.g{border-color:var(--navy)}
+svg{max-width:100%;height:auto;display:block;margin:10px auto}
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:8px}
+.calc label{font-size:.88rem;font-weight:600;color:var(--navy);display:block}
+.calc input{width:100%;padding:6px 10px;border:2px solid var(--blue);border-radius:8px;font:inherit;direction:ltr;color:var(--ink)}
+.calc input:focus{outline:3px solid var(--sky)}
+.out{margin-top:10px;border:2px solid var(--navy);border-radius:10px;padding:8px 14px;font-weight:600;color:var(--navy);background:var(--tint)}
+.exam li{margin:4px 0}
+footer{margin-top:20px;background:var(--navy);color:var(--white);text-align:center;padding:22px 12px;border-top:8px solid var(--sky);direction:ltr;font-weight:600;line-height:1.9;letter-spacing:.2px}
+@media(max-width:620px){.grid2{grid-template-columns:1fr}header.hero h1{font-size:1.5rem}}
+@media print{
+  nav{display:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{break-inside:avoid;margin-bottom:16px}
+  .calc-sec{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>فارماسیوتیکس نظری – جلسه ۲</h1>
+  <p>مشخصه‌یابی جامدات دارویی: پلی‌مورفیسم، هیگروسکوپی و خواص جریان پودر</p>
+</header>
+
+<nav>
+  <a href="#poly">غربالگری پلی‌مورف</a>
+  <a href="#micro">میکروسکوپی</a>
+  <a href="#thermal">آنالیز حرارتی</a>
+  <a href="#xrd">پراش اشعه X</a>
+  <a href="#hygro">هیگروسکوپی</a>
+  <a href="#flow">جریان پودر</a>
+  <a href="#calc" class="calc-sec">ماشین‌حساب</a>
+  <a href="#exam">نکات امتحانی</a>
+</nav>
+
+<main>
+
+<section id="poly">
+  <h2>۱. غربالگری پلی‌مورف <span class="en">(Polymorphism Screening)</span></h2>
+  <div class="body">
+    <p><b>هدف:</b> پیدا کردن بهترین حلال برای ساخت فرم بلوری دارو.</p>
+    <ul>
+      <li>حدود <b>۵۰ mg</b> دارو در <b>۹۶ خانه</b> (چاهک) ریخته می‌شود.</li>
+      <li>در هر خانه حلالی با <b>قطبیت متفاوت</b> اضافه می‌شود.</li>
+      <li>تشکیل بلور در خانه‌ها بررسی می‌شود تا حلال مناسب مشخص شود.</li>
+    </ul>
+    <h3>روش‌های تحلیلی مشخصه‌یابی اشکال جامد</h3>
+    <ul>
+      <li>میکروسکوپی و میکروسکوپی همراه با صفحه گرمایی <span class="en">(Hot stage)</span></li>
+      <li>تحلیل حرارتی <span class="en">(DSC / DTA)</span></li>
+      <li>پراش اشعه X <span class="en">(XRPD)</span></li>
+      <li>طیف‌سنجی فروسرخ <span class="en">(IR)</span>، تشدید مغناطیسی هسته <span class="en">(NMR)</span> و <span class="en">SEM</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="micro">
+  <h2>۲. میکروسکوپی</h2>
+  <div class="body">
+    <p>میکروسکوپ نوری قطبیده (با فیلترهای متقاطع) بین ماده <b>همسانگرد</b> و <b>ناهمسانگرد</b> تمایز می‌گذارد:</p>
+    <table>
+      <thead><tr><th>نوع</th><th>ضریب شکست</th><th>تصویر زیر نور قطبیده</th><th>نتیجه</th></tr></thead>
+      <tbody>
+        <tr><td><b>ایزوتروپیک</b> (همسانگرد)</td><td>یکتا</td><td>تاریک (سیاه)</td><td><b>آمورف</b></td></tr>
+        <tr><td><b>آنیزوتروپیک</b> (ناهمسانگرد)</td><td>بیش از یکی (دوشکستی)</td><td>روشن و درخشان رنگی؛ شدت رنگ وابسته به ضخامت بلور</td><td><b>کریستالی</b></td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <b>تذکر درباره جزوه:</b>
+      در متن جزوه تعریف این دو مورد (ضریب شکست و رنگ تصویر) جابه‌جا نوشته شده است. حالت علمی درست همان است که در جدول بالا آمده؛ ماده آمورف همسانگرد و تاریک است و ماده بلوری درخشان دیده می‌شود. پیش از امتحان با استاد هم‌خوانی را چک کنید.
+    </div>
+    <div class="grid2">
+      <div class="card"><h4>مزیت</h4>مطالعه مورفولوژی بلور و تفاوت اشکال پلی‌مورف.</div>
+      <div class="card g"><h4>عیب</h4>نیاز به بلورشناس نوری آموزش‌دیده؛ چون ظاهر اشکال بلوری در جهت‌گیری‌های نوری مختلف فرق می‌کند.</div>
+    </div>
+
+    <h3>میکروسکوپ با صفحه گرمایی <span class="en">(Hot Stage Microscopy)</span></h3>
+    <ul>
+      <li>میکروسکوپ قطبی‌کننده مجهز به صفحه گرمایی.</li>
+      <li><b>مزایا:</b> بررسی پلی‌مورف، <b>نقطه ذوب</b> و دمای تغییر فاز.</li>
+      <li><b>عیب:</b> ممکن است مولکول‌ها حین ذوب <b>تخریب</b> شوند.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="thermal">
+  <h2>۳. آنالیز حرارتی <span class="en">(Thermal Analysis)</span></h2>
+  <div class="body">
+    <ul>
+      <li><b class="en">DSC</b>: گرماسنجی روبشی تفاضلی</li>
+      <li><b class="en">DTA</b>: تحلیل حرارتی تفاضلی</li>
+      <li>اساس کار: اندازه‌گیری <b>اتلاف یا جذب حرارت</b> ناشی از تغییرات فیزیکی یا شیمیایی نمونه به‌صورت <b>تابعی از دما</b>.</li>
+    </ul>
+
+    <h3>تفسیر منحنی DSC</h3>
+    <ul>
+      <li><b>گرماگیر</b> (Endothermic) رو به پایین و <b>گرمازا</b> (Exothermic) رو به بالا رسم می‌شود.</li>
+      <li><b>گرمای هجومی (ذوب)</b> از سطح زیر پیک گرماگیر ذوب به دست می‌آید؛ گرمای انتقال پلی‌مورف به پلی‌مورف دیگر هم به‌همین ترتیب.</li>
+      <li>پیک <b>تقارن‌دار و تیز</b> ← خلوص نسبی بالا.</li>
+      <li>پیک <b>پهن و نامتقارن</b> ← حضور ناخالصی.</li>
+    </ul>
+
+    <svg viewBox="0 0 480 220" role="img" aria-label="نمودار نمونه DSC">
+      <rect x="1" y="1" width="478" height="218" rx="10" fill="#fff" stroke="#0F4CBA" stroke-width="2"/>
+      <text x="22" y="26" font-size="13" fill="#0A2358" font-weight="700">گرمازا ↑</text>
+      <text x="22" y="206" font-size="13" fill="#0A2358" font-weight="700">گرماگیر ↓</text>
+      <line x1="60" y1="80" x2="450" y2="80" stroke="#0A2358" stroke-width="2.5"/>
+      <path d="M60 80 L200 80 Q226 80 230 120 Q236 180 242 180 Q248 180 252 120 Q256 82 280 80 L450 80" fill="none" stroke="#1E73E8" stroke-width="3.5"/>
+      <path d="M215 80 Q226 80 230 120 Q236 180 242 180 Q248 180 252 120 Q255 82 268 80 Z" fill="#0F4CBA" opacity=".35"/>
+      <text x="268" y="150" font-size="12" fill="#0A2358" font-weight="700">سطح زیر پیک = ΔH ذوب</text>
+      <text x="262" y="196" font-size="12" fill="#0A2358" font-weight="700">Tm (دمای ذوب)</text>
+      <text x="62" y="68" font-size="12" fill="#0A2358" font-weight="700">خط پایه (تغییرات Cp)</text>
+      <text x="400" y="104" font-size="12" fill="#0A2358" font-weight="700">دما →</text>
+    </svg>
+
+    <h3>پلی‌مورف ناپایدار در دو دور گرمایش</h3>
+    <div class="grid2">
+      <div class="card">
+        <h4>دور اول</h4>
+        ۱) پیک ذوب فرم <b>ناپایدار/متاپایدار</b> ← ۲) <b>تبلور مجدد</b> (پیک گرمازا) و تشکیل فرم پایدار ← ۳) ذوب فرم پایدار در دمای ذوب خودش.
+      </div>
+      <div class="card g">
+        <h4>دور دوم</h4>
+        ماده در دور اول به ساختار پایدار رسیده است؛ پیک ناپایدار دیده نمی‌شود و فقط <b>یک پیک ذوب منفرد</b> (فرم پایدار) باقی می‌ماند.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="xrd">
+  <h2>۴. پراش اشعه X <span class="en">(XRPD)</span></h2>
+  <div class="body">
+    <ul>
+      <li>پراش اشعه X به‌دلیل <b>شبکه سه‌بعدی بلور</b> رخ می‌دهد که مانند توری پراش عمل می‌کند.</li>
+      <li>هر بلور الگوی پیک مخصوص خودش را دارد ← <b>اثر انگشت</b> ← تشخیص بلور و پلی‌مورف.</li>
+      <li>در پودر، آرایش منظم شبکه باعث الگوی تکرارپذیر از شدت پیک‌ها می‌شود.</li>
+      <li><b>محور X:</b> زاویه پراش (2θ) &nbsp;|&nbsp; <b>محور Y:</b> شدت پرتوهای پراکنده‌شده.</li>
+      <li>مثال: XRPD دو پلی‌مورف <b>سولفاپیریدین</b> (Form I و Form II) الگوهای متفاوتی دارند.</li>
+    </ul>
+    <div class="note">
+      <b>فرم آمورف:</b> الگوی منظم ندارد و به‌جای پیک‌های تیز، یک <b>هاله پهن</b> می‌دهد (مثال: ترهالوز آمورف).
+    </div>
+  </div>
+</section>
+
+<section id="hygro">
+  <h2>۵. هیگروسکوپی <span class="en">(Hygroscopicity)</span></h2>
+  <div class="body">
+    <ul>
+      <li>بسیاری از مواد، به‌ویژه <b>فرم‌های نمکی محلول در آب</b>، رطوبت هوا را جذب می‌کنند.</li>
+      <li>میزان جذب به این عوامل بستگی دارد: رطوبت جو، دما، سطح مقطع، مدت قرارگیری در معرض هوا و مکانیسم جذب.</li>
+    </ul>
+    <table>
+      <thead><tr><th>طبقه‌بندی</th><th>درصد جذب رطوبت</th></tr></thead>
+      <tbody>
+        <tr><td>Slightly Hygroscopic (کمی رطوبت‌دوست)</td><td>۰٫۲٪ ≤ x &lt; ۲٪</td></tr>
+        <tr><td>Hygroscopic (رطوبت‌دوست)</td><td>۲٪ ≤ x &lt; ۱۵٪</td></tr>
+        <tr><td>Very Hygroscopic (بسیار رطوبت‌دوست)</td><td>x ≥ ۱۵٪</td></tr>
+        <tr><td>Deliquescent (آب‌شونده)</td><td>آن‌قدر آب جذب می‌کند که محلول تشکیل می‌شود</td></tr>
+      </tbody>
+    </table>
+    <h3>روش آزمایش</h3>
+    <ul>
+      <li>نمونه در محیط با <b>رطوبت نسبی کنترل‌شده</b> قرار می‌گیرد.</li>
+      <li>میزان رطوبت در نقاط زمانی مختلف پایش می‌شود.</li>
+    </ul>
+    <h3>روش‌های اندازه‌گیری رطوبت</h3>
+    <ul>
+      <li><b>وزن‌سنجی</b> (Gravimetry)</li>
+      <li><b>تیتراسیون کارل فیشر</b> ← مقدار آب ← <b>روش استاندارد</b></li>
+      <li><b>کروماتوگرافی گازی (GC)</b> ← حرارت باعث تبخیر اجزای سبک می‌شود و از ستون عبور می‌کنند.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="flow">
+  <h2>۶. خواص جریان پودر <span class="en">(Powder Flow)</span></h2>
+  <div class="body">
+    <ul>
+      <li>تحت تأثیر <b>اندازه، شکل و چگالی</b> ذرات.</li>
+      <li>وابسته به <b>نیروی اصطکاک</b> و <b>چسبندگی</b> ذره به ذره.</li>
+      <li><b>ذرات ریز</b> جریان ضعیفی دارند (فضاهای خالی بین ذرات بزرگ را پر کرده و متراکم می‌شوند).</li>
+      <li><b>ذرات کروی‌تر</b> ← فشردگی کمتر ← جریان بهتر.</li>
+      <li>با افزودن <b>مواد لغزنده</b> (Glidant) مثل <b>تالک</b> می‌توان جریان را بهبود داد.</li>
+    </ul>
+
+    <h3>۱) زاویه ریزش <span class="en">(Angle of Repose)</span></h3>
+    <div class="formula">tan θ = h / r</div>
+    <p>h = ارتفاع توده، r = شعاع قاعده. هرچه زاویه <b>کوچک‌تر</b> باشد، جریان‌پذیری <b>بهتر</b> است؛ زاویه مطلوب <b>کمتر از ۳۰°</b>.</p>
+    <table>
+      <thead><tr><th>زاویه θ</th><th>کیفیت جریان</th></tr></thead>
+      <tbody>
+        <tr><td>θ &lt; ۲۵°</td><td>عالی</td></tr>
+        <tr><td>۲۵° – ۳۰°</td><td>خوب</td></tr>
+        <tr><td>۳۰° – ۴۰°</td><td>قابل قبول</td></tr>
+        <tr><td>θ &gt; ۴۰°</td><td>خیلی ضعیف</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>روش‌های استاتیک:</b> قیف ثابت، مخروط ثابت</li>
+      <li><b>روش‌های دینامیک:</b> استوانه چرخان، جعبه مایع</li>
+    </ul>
+
+    <h3>۲) شاخص کار <span class="en">(Carr's Index)</span> و نسبت هاسنر <span class="en">(Hausner Ratio)</span></h3>
+    <p>پودر در استوانه مدرج ریخته می‌شود و جریان آزاد آن بر اساس <b>تراکم‌پذیری</b> سنجیده می‌شود (روش سریع، ساده و محبوب).</p>
+    <div class="formula">Carr (%) = (ρ<sub>Tapped</sub> − ρ<sub>Poured</sub>) / ρ<sub>Tapped</sub> × 100</div>
+    <div class="formula">Hausner = ρ<sub>T</sub> / ρ<sub>B</sub></div>
+    <p>ρT = چگالی توده کوبیده‌شده، ρB = چگالی توده آزادانه ته‌نشین‌شده. <b>هرچه Carr و Hausner کمتر ← جریان بهتر.</b></p>
+    <table>
+      <thead><tr><th>شاخص کار (%)</th><th>نسبت هاسنر</th><th>کیفیت جریان</th></tr></thead>
+      <tbody>
+        <tr><td>۱ – ۱۰</td><td>۱٫۰۰ – ۱٫۱۱</td><td>Excellent</td></tr>
+        <tr><td>۱۱ – ۱۵</td><td>۱٫۱۲ – ۱٫۱۸</td><td>Good</td></tr>
+        <tr><td>۱۶ – ۲۰</td><td>۱٫۱۹ – ۱٫۲۵</td><td>Fair</td></tr>
+        <tr><td>۲۱ – ۲۵</td><td>۱٫۲۶ – ۱٫۳۴</td><td>Passable</td></tr>
+        <tr><td>۲۶ – ۳۱</td><td>۱٫۳۵ – ۱٫۴۵</td><td>Poor</td></tr>
+        <tr><td>۳۲ – ۳۷</td><td>۱٫۴۶ – ۱٫۵۹</td><td>Very Poor</td></tr>
+        <tr><td>&gt; ۳۸</td><td>&gt; ۱٫۶۰</td><td>Extremely Poor</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="calc" class="calc-sec">
+  <h2>ماشین‌حساب تمرینی</h2>
+  <div class="body">
+    <h3>شاخص کار و نسبت هاسنر</h3>
+    <div class="calc">
+      <div><label for="rb">چگالی آزاد (ρB)</label><input id="rb" type="number" step="any" value="0.50"></div>
+      <div><label for="rt">چگالی کوبیده (ρT)</label><input id="rt" type="number" step="any" value="0.62"></div>
+    </div>
+    <div class="out" id="out1"></div>
+    <h3>زاویه ریزش</h3>
+    <div class="calc">
+      <div><label for="hh">ارتفاع توده (h)</label><input id="hh" type="number" step="any" value="3"></div>
+      <div><label for="rr">شعاع (r)</label><input id="rr" type="number" step="any" value="6"></div>
+    </div>
+    <div class="out" id="out2"></div>
+  </div>
+</section>
+
+<section id="exam">
+  <h2>نکات طلایی قبل از امتحان</h2>
+  <div class="body">
+    <ul class="exam">
+      <li>آمورف: همسانگرد، تاریک زیر نور قطبیده، <b>هاله پهن</b> در XRPD.</li>
+      <li>بلور: ناهمسانگرد، روشن زیر نور قطبیده، <b>پیک‌های تیز</b> در XRPD (اثر انگشت).</li>
+      <li>DSC: گرماگیر رو به پایین؛ پیک تیز = خالص؛ پیک پهن = ناخالص؛ سطح زیر پیک = گرمای ذوب.</li>
+      <li>فرم ناپایدار: ذوب ← تبلور مجدد (گرمازا) ← ذوب فرم پایدار؛ در دور دوم فقط پیک پایدار.</li>
+      <li>Hot stage: مزیت = نقطه ذوب و تغییر فاز، عیب = تخریب مولکول حین ذوب.</li>
+      <li>رطوبت: روش استاندارد = <b>کارل فیشر</b>؛ رده‌ها: ۰٫۲–۲ ، ۲–۱۵ ، بالای ۱۵٪ و آب‌شونده.</li>
+      <li>جریان خوب: زاویه ریزش &lt; ۳۰°، Carr کمتر، Hausner نزدیک ۱؛ تالک = لغزنده.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>By Amirmasoud Vatanpour &amp;</div>
+  <div>A.H.Ebrahimnaz</div>
+</footer>
+
+<script>
+(function(){
+  var carrTable=[[10,1.11,"Excellent"],[15,1.18,"Good"],[20,1.25,"Fair"],[25,1.34,"Passable"],[31,1.45,"Poor"],[37,1.59,"Very Poor"],[1e9,1e9,"Extremely Poor"]];
+  function calc1(){
+    var b=parseFloat(document.getElementById('rb').value),t=parseFloat(document.getElementById('rt').value),o=document.getElementById('out1');
+    if(!(b>0)||!(t>0)||t<b){o.textContent="مقادیر را درست وارد کنید (ρT باید ≥ ρB باشد).";return;}
+    var c=(t-b)/t*100,h=t/b,cls="";
+    for(var i=0;i<carrTable.length;i++){if(c<=carrTable[i][0]){cls=carrTable[i][2];break;}}
+    o.textContent="Carr = "+c.toFixed(1)+"%   |   Hausner = "+h.toFixed(2)+"   →   "+cls;
+  }
+  function calc2(){
+    var h=parseFloat(document.getElementById('hh').value),r=parseFloat(document.getElementById('rr').value),o=document.getElementById('out2');
+    if(!(h>0)||!(r>0)){o.textContent="مقادیر را درست وارد کنید.";return;}
+    var a=Math.atan(h/r)*180/Math.PI,q=a<25?"عالی":a<30?"خوب":a<=40?"قابل قبول":"خیلی ضعیف";
+    o.textContent="θ = "+a.toFixed(1)+"°   →   جریان "+q;
+  }
+  ['rb','rt'].forEach(function(id){document.getElementById(id).addEventListener('input',calc1)});
+  ['hh','rr'].forEach(function(id){document.getElementById(id).addEventListener('input',calc2)});
+  calc1();calc2();
+})();
+</script>
+</body>
+</html>
